@@ -1,6 +1,11 @@
-
+import Header from "@/components/header";
 export default function Home() {
-  return (
-    <h1>Begory</h1>
-  );
+    return (
+        <div className="min-h-screen">
+            <Header />
+            <h1 className="text-4xl font-bold text-center mt-16">
+                Begory Capital
+            </h1>
+        </div>
+    );
 }
