@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import NavButton from "@/components/nav";
 import Image from "next/image";
 
 export default function Header() {
@@ -14,8 +15,8 @@ export default function Header() {
                         alt="Begory Icon"
                     />
                     <Button
+                        className="text-xl font-bold px-2 mt-1"
                         variant="ghost"
-                        className="text-xl font-bold px-2 py-2"
                         asChild
                     >
                         <Link title="Home" aria-label="Home Page" href="/">
@@ -30,7 +31,15 @@ export default function Header() {
                         </Link>
                     </Button>
                 </div>
-                {/* <div> this will be the remaining buttons</div> */}
+                <div>
+                    <NavButton label="Into Begory" />
+                    <NavButton label="Our Team" />
+                    <NavButton label="Our Services" />
+                    <NavButton label="Our Portfolio" />
+                </div>
+                <div>
+                    <Button size="sm">Contact Us</Button>
+                </div>
             </div>
         </header>
     );
