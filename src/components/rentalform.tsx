@@ -151,40 +151,9 @@ export default function RentalForm() {
                         </div>
                     </FieldGroup>
                 </FieldSet>
-                <FieldSeparator />
-                <FieldSet>
-                    <FieldLegend>Billing Address</FieldLegend>
-                    <FieldDescription>
-                        The billing address associated with your payment method
-                    </FieldDescription>
-                    <FieldGroup>
-                        <Field orientation="horizontal">
-                            <FieldLabel
-                                htmlFor="checkout-7j9-same-as-shipping-wgm"
-                                className="font-normal"
-                            >
-                                Same as shipping address
-                            </FieldLabel>
-                        </Field>
-                    </FieldGroup>
-                </FieldSet>
-                <FieldSet>
-                    <FieldGroup>
-                        <Field>
-                            <FieldLabel htmlFor="checkout-7j9-optional-comments">
-                                Comments
-                            </FieldLabel>
-                            <Textarea
-                                id="checkout-7j9-optional-comments"
-                                placeholder="Add any additional comments"
-                                className="resize-none"
-                            />
-                        </Field>
-                    </FieldGroup>
-                </FieldSet>
                 <Field orientation="horizontal">
                     <Button type="submit">Submit</Button>
-                    <Button variant="outline" type="button">
+                    <Button variant="destructive" type="button">
                         Cancel
                     </Button>
                 </Field>
