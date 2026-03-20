@@ -4,11 +4,7 @@ import {
     FieldGroup,
     FieldLabel,
     FieldSet,
-    FieldSeparator,
-    FieldTitle,
-    FieldContent,
     FieldLegend,
-    FieldError,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -20,7 +16,6 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
 
 export default function RentalForm() {
     return (
@@ -152,7 +147,9 @@ export default function RentalForm() {
                     </FieldGroup>
                 </FieldSet>
                 <Field orientation="horizontal">
-                    <Button type="submit">Submit</Button>
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
                     <Button variant="destructive" type="button">
                         Cancel
                     </Button>

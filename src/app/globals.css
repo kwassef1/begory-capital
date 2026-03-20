@@ -44,10 +44,14 @@
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-ring: var(--sidebar-ring);
+    --color-hero-card-warm: var(--hero-card-warm);
+    --color-hero-card-mid: var(--hero-card-mid);
 }
 
 :root {
     --radius: 0.65rem;
+    --hero-card-warm: #f5e3b2;
+    --hero-card-mid: #f6f3ea;
     --background: oklch(1 0 0);
     --foreground: oklch(0.141 0.005 285.823);
     --card: oklch(1 0 0);

@@ -15,7 +15,7 @@ export default function Header() {
                         alt="Begory Icon"
                     />
                     <Button
-                        className="text-xl font-bold px-2 mt-1"
+                        className="text-xl font-bold px-2 mt-1 hover:bg-transparent"
                         variant="ghost"
                         asChild
                     >
@@ -38,7 +38,9 @@ export default function Header() {
                     <NavButton label="Our Portfolio" />
                 </div>
                 <div>
-                    <Button size="sm">Contact Us</Button>
+                    <Button variant="primary" size="sm">
+                        Contact Us
+                    </Button>
                 </div>
             </div>
         </header>

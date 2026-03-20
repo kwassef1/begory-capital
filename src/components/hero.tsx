@@ -27,8 +27,12 @@ export default function Hero() {
                     </p>
 
                     <div className="flex flex-wrap gap-3 mt-7 items-center radius-4xl rounded-full">
-                        <Button type="submit">Get pre-approved</Button>
-                        <Button variant="outline">View loan programs</Button>
+                        <Button variant="primary" size="begory" type="submit">
+                            Get pre-approved
+                        </Button>
+                        <Button variant="outline" size="begory">
+                            View loan programs
+                        </Button>
                     </div>
 
                     <p className="mt-4 text-sm text-gray-600">

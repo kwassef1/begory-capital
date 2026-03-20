@@ -14,7 +14,7 @@ export default function Card({
     return (
         <div className="w-full flex justify-center">
             <div
-                className={`max-w-md w-full flex-none bg-white rounded-2xl border border-gray-200 shadow-md p-6  ${className}`}
+                className={`max-w-md w-full flex-none bg-gradient-to-br from-hero-card-warm via-hero-card-mid via-[10%] to-white rounded-2xl border border-gray-200 shadow-md p-6 ${className}`}
             >
                 {title && <div className="card-title">{title}</div>}
                 {tag && (
