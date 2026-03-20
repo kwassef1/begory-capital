@@ -7,9 +7,9 @@ export default function Badge({ children, showDot = true }: BadgeProps) {
     return (
         <div
             style={{ backgroundColor: "var(--primary-12)" }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-navy text-sm font-medium"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-foreground text-sm font-medium"
         >
-            {showDot && <span className="w-2 h-2 rounded-full bg-gold"></span>}
+            {showDot && <span className="w-2 h-2 rounded-full bg-primary"></span>}
             {children}
         </div>
     );

@@ -10,7 +10,7 @@ export default function Metric({ label, value, subtitle }: MetricProps) {
             <div className="text-xs uppercase text-gray-500 tracking-widest mb-0.5">
                 {label}
             </div>
-            <div className="text-xl font-bold text-navy-soft">{value}</div>
+            <div className="text-xl font-bold text-foreground">{value}</div>
             <div className="text-sm text-gray-500">{subtitle}</div>
         </div>
     );

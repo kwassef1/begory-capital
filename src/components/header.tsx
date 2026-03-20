@@ -24,14 +24,14 @@ export default function Header() {
                                 <h2 className="text-xl font-bolder">
                                     Begory Capital
                                 </h2>
-                                <h1 className="text-sm font-medium">
+                                <h1 className="hidden sm:block text-sm font-medium">
                                     PRIVATE LENDING • REAL ESTATE
                                 </h1>
                             </div>
                         </Link>
                     </Button>
                 </div>
-                <div>
+                <div className="hidden lg:flex">
                     <NavButton label="Into Begory" />
                     <NavButton label="Our Team" />
                     <NavButton label="Our Services" />

@@ -1,18 +1,19 @@
-import Card from "@/components/card";
-import RentalForm from "@/components/rentalform";
 import SplitLayout from "@/components/split";
+import DSCRSample from "@/components/dscr-sample";
 import Metric from "@/components/metrics";
 import Badge from "@/components/badge";
 import { Button } from "@/components/ui/button";
+import Card from "@/components/card";
 
 export default function Hero() {
     return (
         <SplitLayout
+            ratio="66-33"
             left={
-                <div className="flex-1 min-w-sm max-w-lg">
+                <div className="flex-1 w-full max-w-lg mx-auto">
                     <Badge>Fast funding for real estate investors</Badge>
 
-                    <h1 className="mt-4 font-serif font-bold text-4xl lg:text-5xl leading-tight text-navy tracking-tight">
+                    <h1 className="mt-4 font-serif font-bold text-4xl lg:text-5xl leading-tight text-foreground tracking-tight">
                         We fund the deals that{" "}
                         <span className="inline-block bg-gradient-to-br from-yellow-600 to-yellow-300 bg-clip-text text-transparent">
                             build your portfolio.
@@ -36,7 +37,7 @@ export default function Hero() {
                     </div>
 
                     <p className="mt-4 text-sm text-gray-600">
-                        <strong className="text-navy-soft">
+                        <strong className="text-foreground">
                             Close in as little as 7–10 days.
                         </strong>{" "}
                         No tax returns on many programs—just the property, the
@@ -64,7 +65,7 @@ export default function Hero() {
             }
             right={
                 <Card>
-                    <RentalForm />
+                    <DSCRSample />
                 </Card>
             }
         />

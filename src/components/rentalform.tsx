@@ -1,6 +1,5 @@
 import {
     Field,
-    FieldDescription,
     FieldGroup,
     FieldLabel,
     FieldSet,
@@ -8,150 +7,76 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
 
 export default function RentalForm() {
     return (
         <form>
             <FieldGroup>
                 <FieldSet>
-                    <FieldLegend>Payment Method</FieldLegend>
-                    <FieldDescription>
-                        All transactions are secure and encrypted
-                    </FieldDescription>
-                    <FieldGroup>
+                    <FieldLegend>Rental Assumptions</FieldLegend>
+                    <div className="grid grid-cols-2 gap-4">
                         <Field>
-                            <FieldLabel htmlFor="checkout-7j9-card-name-43j">
-                                Name on Card
-                            </FieldLabel>
-                            <Input
-                                id="checkout-7j9-card-name-43j"
-                                placeholder="Evil Rabbit"
-                                required
-                            />
+                            <FieldLabel htmlFor="rent-purchase">Purchase price ($)</FieldLabel>
+                            <Input id="rent-purchase" type="number" placeholder="200000" />
                         </Field>
                         <Field>
-                            <FieldLabel htmlFor="checkout-7j9-card-number-uw1">
-                                Card Number
-                            </FieldLabel>
-                            <Input
-                                id="checkout-7j9-card-number-uw1"
-                                placeholder="1234 5678 9012 3456"
-                                required
-                            />
-                            <FieldDescription>
-                                Enter your 16-digit card number
-                            </FieldDescription>
+                            <FieldLabel htmlFor="rent-down">Down payment (%)</FieldLabel>
+                            <Input id="rent-down" type="number" placeholder="20" />
                         </Field>
-                        <div className="grid grid-cols-3 gap-4">
-                            <Field>
-                                <FieldLabel htmlFor="checkout-exp-month-ts6">
-                                    Month
-                                </FieldLabel>
-                                <Select defaultValue="">
-                                    <SelectTrigger id="checkout-exp-month-ts6">
-                                        <SelectValue placeholder="MM" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectGroup>
-                                            <SelectItem value="01">
-                                                01
-                                            </SelectItem>
-                                            <SelectItem value="02">
-                                                02
-                                            </SelectItem>
-                                            <SelectItem value="03">
-                                                03
-                                            </SelectItem>
-                                            <SelectItem value="04">
-                                                04
-                                            </SelectItem>
-                                            <SelectItem value="05">
-                                                05
-                                            </SelectItem>
-                                            <SelectItem value="06">
-                                                06
-                                            </SelectItem>
-                                            <SelectItem value="07">
-                                                07
-                                            </SelectItem>
-                                            <SelectItem value="08">
-                                                08
-                                            </SelectItem>
-                                            <SelectItem value="09">
-                                                09
-                                            </SelectItem>
-                                            <SelectItem value="10">
-                                                10
-                                            </SelectItem>
-                                            <SelectItem value="11">
-                                                11
-                                            </SelectItem>
-                                            <SelectItem value="12">
-                                                12
-                                            </SelectItem>
-                                        </SelectGroup>
-                                    </SelectContent>
-                                </Select>
-                            </Field>
-                            <Field>
-                                <FieldLabel htmlFor="checkout-7j9-exp-year-f59">
-                                    Year
-                                </FieldLabel>
-                                <Select defaultValue="">
-                                    <SelectTrigger id="checkout-7j9-exp-year-f59">
-                                        <SelectValue placeholder="YYYY" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectGroup>
-                                            <SelectItem value="2024">
-                                                2024
-                                            </SelectItem>
-                                            <SelectItem value="2025">
-                                                2025
-                                            </SelectItem>
-                                            <SelectItem value="2026">
-                                                2026
-                                            </SelectItem>
-                                            <SelectItem value="2027">
-                                                2027
-                                            </SelectItem>
-                                            <SelectItem value="2028">
-                                                2028
-                                            </SelectItem>
-                                            <SelectItem value="2029">
-                                                2029
-                                            </SelectItem>
-                                        </SelectGroup>
-                                    </SelectContent>
-                                </Select>
-                            </Field>
-                            <Field>
-                                <FieldLabel htmlFor="checkout-7j9-cvv">
-                                    CVV
-                                </FieldLabel>
-                                <Input
-                                    id="checkout-7j9-cvv"
-                                    placeholder="123"
-                                    required
-                                />
-                            </Field>
-                        </div>
-                    </FieldGroup>
+                        <Field>
+                            <FieldLabel htmlFor="rent-rate">Interest rate (%)</FieldLabel>
+                            <Input id="rent-rate" type="number" step="0.01" placeholder="6" />
+                        </Field>
+                        <Field>
+                            <FieldLabel htmlFor="rent-term">Loan term (years)</FieldLabel>
+                            <Input id="rent-term" type="number" placeholder="30" />
+                        </Field>
+                        <Field>
+                            <FieldLabel htmlFor="rent-closing">Closing costs + initial repairs ($)</FieldLabel>
+                            <Input id="rent-closing" type="number" placeholder="10000" />
+                        </Field>
+                        <Field>
+                            <FieldLabel htmlFor="rent-monthly-rent">Monthly rent ($)</FieldLabel>
+                            <Input id="rent-monthly-rent" type="number" placeholder="2000" />
+                        </Field>
+                        <Field>
+                            <FieldLabel htmlFor="rent-other-income">Other monthly income ($)</FieldLabel>
+                            <Input id="rent-other-income" type="number" placeholder="0" />
+                        </Field>
+                        <Field>
+                            <FieldLabel htmlFor="rent-vacancy">Vacancy rate (%)</FieldLabel>
+                            <Input id="rent-vacancy" type="number" placeholder="5" />
+                        </Field>
+                        <Field>
+                            <FieldLabel htmlFor="rent-mgmt">Management fee (% of rent)</FieldLabel>
+                            <Input id="rent-mgmt" type="number" placeholder="8" />
+                        </Field>
+                        <Field>
+                            <FieldLabel htmlFor="prop-tax">Annual property tax ($)</FieldLabel>
+                            <Input id="prop-tax" type="number" placeholder="3000" />
+                        </Field>
+                        <Field>
+                            <FieldLabel htmlFor="prop-ins">Annual insurance ($)</FieldLabel>
+                            <Input id="prop-ins" type="number" placeholder="1200" />
+                        </Field>
+                        <Field>
+                            <FieldLabel htmlFor="prop-hoa">Annual HOA / other fixed costs ($)</FieldLabel>
+                            <Input id="prop-hoa" type="number" placeholder="500" />
+                        </Field>
+                        <Field>
+                            <FieldLabel htmlFor="prop-maint">Annual maintenance ($)</FieldLabel>
+                            <Input id="prop-maint" type="number" placeholder="2000" />
+                        </Field>
+                        <Field>
+                            <FieldLabel htmlFor="prop-other-exp">Other annual expenses ($)</FieldLabel>
+                            <Input id="prop-other-exp" type="number" placeholder="0" />
+                        </Field>
+                    </div>
                 </FieldSet>
+
                 <Field orientation="horizontal">
                     <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
-                    <Button variant="destructive" type="button">
-                        Cancel
+                        Run rental analysis
                     </Button>
                 </Field>
             </FieldGroup>
