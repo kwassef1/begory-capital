@@ -1,20 +1,32 @@
 import React from "react";
+
+type CardVariant = "default" | "dark" | "ghost";
+
 type CardProps = {
     children: React.ReactNode;
     className?: string;
     title?: string;
     tag?: string;
+    variant?: CardVariant;
 };
+
+const variantClasses: Record<CardVariant, string> = {
+    default: "bg-gradient-to-br from-primary/35 via-primary/10 via-[10%] to-white border border-gray-200 shadow-md",
+    dark:    "bg-gradient-to-br from-foreground to-foreground/75 border-0 shadow-lg text-gray-200",
+    ghost:   "bg-white/90 border border-border",
+};
+
 export default function Card({
     children,
     className = "",
     title,
     tag,
+    variant = "default",
 }: CardProps) {
     return (
         <div className="w-full flex justify-center">
             <div
-                className={`max-w-lg w-full flex-none bg-gradient-to-br from-primary/35 via-primary/10 via-[10%] to-white rounded-2xl border border-gray-200 shadow-md p-6 ${className}`}
+                className={`max-w-lg w-full flex-none rounded-2xl p-6 ${variantClasses[variant]} ${className}`}
             >
                 {title && <div className="card-title">{title}</div>}
                 {tag && (

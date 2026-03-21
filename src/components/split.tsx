@@ -3,13 +3,17 @@ type SplitLayoutProps = {
     right: React.ReactNode;
     reverse?: boolean;
     className?: string;
-    ratio?: "50-50" | "66-33" | "33-66";
+    ratio?: "50-50" | "55-45" | "60-40" | "66-33" | "33-66" | "40-60" | "45-55";
 };
 
 const ratioClasses: Record<NonNullable<SplitLayoutProps["ratio"]>, string> = {
     "50-50": "lg:grid-cols-2",
+    "55-45": "lg:grid-cols-[11fr_9fr]",
+    "60-40": "lg:grid-cols-[3fr_2fr]",
     "66-33": "lg:grid-cols-[2fr_1fr]",
     "33-66": "lg:grid-cols-[1fr_2fr]",
+    "40-60": "lg:grid-cols-[2fr_3fr]",
+    "45-55": "lg:grid-cols-[9fr_11fr]",
 };
 
 export default function SplitLayout({

@@ -1,15 +1,17 @@
 import Header from "@/components/header";
 import Hero from "@/components/hero";
-import RentalForm from "@/components/rentalform";
-import DSCRSample from "@/components/dscr-sample";
-import SplitLayout from "@/components/split";
-import Card from "@/components/card";
+import Trusted from "@/components/trusted";
+import Footer from "@/components/footer";
 
 export default function Home() {
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 flex flex-col">
             <Header />
-            <Hero />
+            <main className="flex-1">
+                <Hero />
+                <Trusted />
+            </main>
+            <Footer />
         </div>
     );
 }

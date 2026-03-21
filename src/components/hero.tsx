@@ -8,7 +8,7 @@ import Card from "@/components/card";
 export default function Hero() {
     return (
         <SplitLayout
-            ratio="66-33"
+            ratio="60-40"
             left={
                 <div className="flex-1 w-full max-w-lg mx-auto">
                     <Badge>Fast funding for real estate investors</Badge>
@@ -64,7 +64,7 @@ export default function Hero() {
                 </div>
             }
             right={
-                <Card>
+                <Card className="max-w-full my-auto">
                     <DSCRSample />
                 </Card>
             }
