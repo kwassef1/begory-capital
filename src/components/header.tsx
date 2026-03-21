@@ -31,16 +31,16 @@ export default function Header() {
 
                 {/* Desktop nav — center */}
                 <div className="hidden lg:flex flex-1 justify-center">
-                    <NavButton label="Into Begory" />
-                    <NavButton label="Our Team" />
+                    <NavButton label="Into Begory" href="/#why" />
+                    <NavButton label="Our Team" href="/#contact" />
                     <NavButton label="Our Services" href="/invest" />
-                    <NavButton label="Our Portfolio" />
+                    <NavButton label="Our Portfolio" href="/#loan-programs" />
                 </div>
 
                 {/* Contact Us — desktop only */}
                 <div className="hidden lg:block">
-                    <Button variant="primary" size="sm">
-                        Contact Us
+                    <Button variant="primary" size="sm" asChild>
+                        <a href="/#contact">Contact Us</a>
                     </Button>
                 </div>
 
@@ -68,14 +68,14 @@ export default function Header() {
             {/* Mobile menu — shown when checkbox is checked */}
             <div className="lg:hidden hidden peer-checked/nav:block border-t bg-sidebar/95 backdrop-blur-md">
                 <nav className="flex flex-col px-4 py-2 max-w-7xl mx-auto">
-                    <NavButton label="Into Begory" />
-                    <NavButton label="Our Team" />
+                    <NavButton label="Into Begory" href="/#why" />
+                    <NavButton label="Our Team" href="/#contact" />
                     <NavButton label="Our Services" href="/invest" />
-                    <NavButton label="Our Portfolio" />
+                    <NavButton label="Our Portfolio" href="/#loan-programs" />
                 </nav>
                 <div className="px-4 pb-4">
-                    <Button variant="primary" className="w-full">
-                        Contact Us
+                    <Button variant="primary" className="w-full" asChild>
+                        <a href="/#contact">Contact Us</a>
                     </Button>
                 </div>
             </div>

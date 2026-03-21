@@ -13,8 +13,8 @@ export default function CTAStrip() {
                     </p>
                 </div>
                 <div>
-                    <Button variant="primary" size="lg">
-                        Start a conversation
+                    <Button variant="primary" size="lg" asChild>
+                        <a href="#contact">Start a conversation</a>
                     </Button>
                 </div>
             </div>

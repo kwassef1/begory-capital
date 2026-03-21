@@ -1,4 +1,5 @@
 import Badge from "@/components/badge";
+import Card from "@/components/card";
 import SplitLayout from "@/components/split";
 
 const values = [
@@ -33,13 +34,10 @@ function Left() {
 
             <div className="grid sm:grid-cols-3 gap-3">
                 {values.map(({ title, body }) => (
-                    <div
-                        key={title}
-                        className="flex flex-col gap-1.5 rounded-2xl border border-border bg-card p-4 shadow-sm"
-                    >
+                    <Card key={title} className="p-4 flex flex-col gap-1.5">
                         <div className="text-sm font-semibold text-foreground">{title}</div>
                         <p className="text-sm text-muted-foreground">{body}</p>
-                    </div>
+                    </Card>
                 ))}
             </div>
         </div>
@@ -48,7 +46,7 @@ function Left() {
 
 function Right() {
     return (
-        <div className="rounded-3xl bg-foreground text-gray-200 p-6 grid md:grid-cols-[2fr_1.3fr] gap-5 md:items-center shadow-lg">
+        <Card variant="dark" className="rounded-3xl p-6 flex flex-col gap-5">
             <div>
                 <div className="text-4xl leading-none text-primary mb-2">&ldquo;</div>
                 <p className="text-sm leading-relaxed">
@@ -57,22 +55,20 @@ function Right() {
                 <div className="mt-3 text-sm font-medium">Realtor Name Here</div>
                 <div className="text-xs text-gray-400">NY &amp; NJ Real Estate Agent</div>
             </div>
-            <div>
-                <p className="text-xs text-gray-400 leading-relaxed">
-                    Replace this with your strongest success story — an &ldquo;impossible&rdquo; loan you closed. Agents and investors remember real stories more than rate sheets.
-                </p>
-                <div className="flex flex-wrap gap-2 mt-3">
-                    {pills.map((pill) => (
-                        <span
-                            key={pill}
-                            className="px-3 py-1 rounded-full border border-white/10 text-xs text-gray-300"
-                        >
-                            {pill}
-                        </span>
-                    ))}
-                </div>
+            <p className="text-xs text-gray-400 leading-relaxed">
+                Replace this with your strongest success story — an &ldquo;impossible&rdquo; loan you closed. Agents and investors remember real stories more than rate sheets.
+            </p>
+            <div className="flex flex-wrap gap-2">
+                {pills.map((pill) => (
+                    <span
+                        key={pill}
+                        className="px-3 py-1 rounded-full border border-white/10 text-xs text-gray-300"
+                    >
+                        {pill}
+                    </span>
+                ))}
             </div>
-        </div>
+        </Card>
     );
 }
 

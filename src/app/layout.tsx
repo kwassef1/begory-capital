@@ -14,8 +14,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "Begory Capital",
-    description: "Private Lending for Real Estate Investors",
+    title: {
+        default: "Begory Capital | Private Real Estate Lending",
+        template: "%s | Begory Capital",
+    },
+    description:
+        "Begory Capital offers fast, flexible private loans for real estate investors in New York and New Jersey — fix-and-flip, DSCR, and bridge financing.",
+    metadataBase: new URL("https://begorycapital.com"),
+    openGraph: {
+        siteName: "Begory Capital",
+        locale: "en_US",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+    },
 };
 
 export default function RootLayout({

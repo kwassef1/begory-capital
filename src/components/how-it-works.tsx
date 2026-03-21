@@ -75,7 +75,7 @@ function Left() {
 
 function Right() {
     return (
-        <Card variant="dark" className="max-w-full">
+        <Card variant="dark" className="p-6">
             <div className="grid md:grid-cols-[1.15fr_1.3fr] gap-5 md:items-center">
                 <div>
                     <p className="text-base font-medium text-gray-200 leading-relaxed">

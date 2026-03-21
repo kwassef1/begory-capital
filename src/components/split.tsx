@@ -4,6 +4,8 @@ type SplitLayoutProps = {
     reverse?: boolean;
     className?: string;
     ratio?: "50-50" | "55-45" | "60-40" | "66-33" | "33-66" | "40-60" | "45-55";
+    /** Strip page-level margin/padding so SplitLayout can compose inside a Card or section. */
+    bare?: boolean;
 };
 
 const ratioClasses: Record<NonNullable<SplitLayoutProps["ratio"]>, string> = {
@@ -22,10 +24,12 @@ export default function SplitLayout({
     reverse = false,
     className = "",
     ratio = "50-50",
+    bare = false,
 }: SplitLayoutProps) {
+    const wrapper = bare ? "" : "max-w-7xl mx-auto my-16 px-4 sm:px-6 lg:px-8";
     return (
         <div
-            className={`max-w-7xl mx-auto my-16 px-4 sm:px-6 lg:px-8 grid gap-7 ${ratioClasses[ratio]} lg:items-center ${className}`}
+            className={`${wrapper} grid gap-7 ${ratioClasses[ratio]} lg:items-center ${className}`}
         >
             <div className={reverse ? "lg:order-2" : ""}>{left}</div>
             <div className={reverse ? "lg:order-1" : ""}>{right}</div>

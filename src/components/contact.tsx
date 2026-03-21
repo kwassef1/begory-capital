@@ -31,7 +31,7 @@ export default function Contact() {
 
                     {/* Contact form */}
                     <form className="rounded-2xl border border-border bg-card p-6 shadow-sm flex flex-col gap-4">
-                        <div className="grid grid-cols-2 gap-3">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <div className="flex flex-col gap-1">
                                 <label className="text-xs text-muted-foreground" htmlFor="c-name">Full name</label>
                                 <Input id="c-name" type="text" placeholder="Your name" autoComplete="name" />

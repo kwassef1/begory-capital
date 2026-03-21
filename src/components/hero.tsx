@@ -27,12 +27,12 @@ export default function Hero() {
                         red tape.
                     </p>
 
-                    <div className="flex flex-wrap gap-3 mt-7 items-center radius-4xl rounded-full">
-                        <Button variant="primary" size="begory" type="submit">
-                            Get pre-approved
+                    <div className="flex flex-wrap gap-3 mt-7 items-center">
+                        <Button variant="primary" size="begory" asChild>
+                            <a href="#contact">Get pre-approved</a>
                         </Button>
-                        <Button variant="outline" size="begory">
-                            View loan programs
+                        <Button variant="outline" size="begory" asChild>
+                            <a href="#loan-programs">View loan programs</a>
                         </Button>
                     </div>
 
@@ -64,7 +64,7 @@ export default function Hero() {
                 </div>
             }
             right={
-                <Card className="max-w-full my-auto">
+                <Card variant="default" className="my-auto p-6">
                     <DSCRSample />
                 </Card>
             }

@@ -25,7 +25,7 @@ function Left() {
 
             <div className="rounded-2xl border border-border bg-card p-5 shadow-sm flex flex-col gap-4">
                 <div className="text-sm font-semibold text-foreground">Investor &amp; property details</div>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div className="flex flex-col gap-1">
                         <label className="text-xs text-muted-foreground" htmlFor="rc-name">Full name</label>
                         <Input id="rc-name" type="text" placeholder="Your name" autoComplete="name" />
@@ -112,7 +112,7 @@ function Right() {
     return (
         <div className="rounded-2xl border border-border bg-card p-5 shadow-sm flex flex-col gap-4">
             <div className="text-sm font-semibold text-foreground">Rental assumptions</div>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {fields.map(({ label, id, ph, step }) => (
                     <div key={id} className="flex flex-col gap-1">
                         <label className="text-xs text-muted-foreground" htmlFor={id}>{label}</label>

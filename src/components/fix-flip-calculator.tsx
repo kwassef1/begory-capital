@@ -25,7 +25,7 @@ function Left() {
 
             <div className="rounded-2xl border border-border bg-card p-5 shadow-sm flex flex-col gap-4">
                 <div className="text-sm font-semibold text-foreground">Investor &amp; deal contact</div>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div className="flex flex-col gap-1">
                         <label className="text-xs text-muted-foreground" htmlFor="ff-name">Full name</label>
                         <Input id="ff-name" type="text" placeholder="Your name" autoComplete="name" />
@@ -80,7 +80,7 @@ function Right() {
     return (
         <div className="rounded-2xl border border-border bg-card p-5 shadow-sm flex flex-col gap-4">
             <div className="text-sm font-semibold text-foreground">Deal assumptions</div>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {[
                     { label: "Purchase price ($)", id: "ff-purchase", val: purchase, set: setPurchase, ph: "300000" },
                     { label: "Rehab / renovation budget ($)", id: "ff-rehab", val: rehab, set: setRehab, ph: "80000" },
