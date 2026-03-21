@@ -12,7 +12,7 @@ type CardProps = {
 
 const variantClasses: Record<CardVariant, string> = {
     default: "bg-gradient-to-br from-primary/35 via-primary/10 via-[10%] to-white border border-gray-200 shadow-md",
-    dark:    "bg-gradient-to-br from-foreground to-foreground/75 border-0 shadow-lg text-gray-200",
+    dark:    "bg-foreground border-0 shadow-lg text-gray-200",
     ghost:   "bg-white/90 border border-border",
 };
 

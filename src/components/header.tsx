@@ -33,7 +33,7 @@ export default function Header() {
                 <div className="hidden lg:flex flex-1 justify-center">
                     <NavButton label="Into Begory" />
                     <NavButton label="Our Team" />
-                    <NavButton label="Our Services" />
+                    <NavButton label="Our Services" href="/invest" />
                     <NavButton label="Our Portfolio" />
                 </div>
 
@@ -70,7 +70,7 @@ export default function Header() {
                 <nav className="flex flex-col px-4 py-2 max-w-7xl mx-auto">
                     <NavButton label="Into Begory" />
                     <NavButton label="Our Team" />
-                    <NavButton label="Our Services" />
+                    <NavButton label="Our Services" href="/invest" />
                     <NavButton label="Our Portfolio" />
                 </nav>
                 <div className="px-4 pb-4">
