@@ -5,11 +5,9 @@ import Trusted from "@/components/trusted";
 import HowItWorks from "@/components/how-it-works";
 import LoanPrograms from "@/components/loan-programs";
 import WhyBegory from "@/components/why-begory";
-import FAQ from "@/components/faq";
 import CTAStrip from "@/components/cta-strip";
 import FixFlipCalculator from "@/components/fix-flip-calculator";
 import RentalCalculator from "@/components/rental-calculator";
-import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
@@ -42,9 +40,7 @@ export default function Home() {
                 <WhyBegory />
                 <FixFlipCalculator />
                 <RentalCalculator />
-                <FAQ />
                 <CTAStrip />
-                <Contact />
             </main>
             <Footer />
         </div>

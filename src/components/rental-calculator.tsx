@@ -12,7 +12,7 @@ function fmt(n: number) {
 
 function Left() {
     return (
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 h-full">
             <div className="flex flex-col gap-2">
                 <Badge>RENTAL CALCULATOR</Badge>
                 <h2 className="text-2xl sm:text-3xl font-semibold text-foreground leading-snug">
@@ -23,7 +23,7 @@ function Left() {
                 </p>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card p-5 shadow-sm flex flex-col gap-4">
+            <div className="rounded-2xl border border-border bg-card p-5 shadow-sm flex flex-col gap-4 flex-1">
                 <div className="text-sm font-semibold text-foreground">Investor &amp; property details</div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div className="flex flex-col gap-1">
@@ -110,7 +110,7 @@ function Right() {
     }
 
     return (
-        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm flex flex-col gap-4">
+        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm flex flex-col gap-4 h-full">
             <div className="text-sm font-semibold text-foreground">Rental assumptions</div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {fields.map(({ label, id, ph, step }) => (
@@ -161,8 +161,8 @@ function Right() {
 
 export default function RentalCalculator() {
     return (
-        <section id="rental-calculator">
-            <SplitLayout left={<Left />} right={<Right />} ratio="45-55" />
+        <section id="rental-calculator" className="scroll-mt-20">
+            <SplitLayout left={<Left />} right={<Right />} ratio="45-55" align="stretch" />
         </section>
     );
 }

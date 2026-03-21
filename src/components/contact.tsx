@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 
 export default function Contact() {
     return (
-        <section id="contact">
+        <section id="contact" className="scroll-mt-20">
             <div className="max-w-7xl mx-auto my-16 px-4 sm:px-6 lg:px-8">
                 <div className="grid md:grid-cols-2 gap-6">
 

@@ -74,7 +74,7 @@ function Right() {
 
 export default function WhyBegory() {
     return (
-        <section id="why">
+        <section id="why" className="scroll-mt-20">
             <SplitLayout left={<Left />} right={<Right />} ratio="55-45" />
         </section>
     );

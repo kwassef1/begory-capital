@@ -38,7 +38,7 @@ const programs = [
 
 export default function LoanPrograms() {
     return (
-        <section id="loan-programs">
+        <section id="loan-programs" className="scroll-mt-20">
             <div className="max-w-7xl mx-auto my-16 px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col gap-1.5 mb-9 max-w-2xl">
                     <Badge>LOAN PROGRAMS</Badge>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import NavButton from "@/components/nav";
+import SmoothScrollLink from "@/components/smooth-scroll-link";
 import Image from "next/image";
 
 export default function Header() {
@@ -31,16 +32,16 @@ export default function Header() {
 
                 {/* Desktop nav — center */}
                 <div className="hidden lg:flex flex-1 justify-center">
-                    <NavButton label="Into Begory" href="/#why" />
-                    <NavButton label="Our Team" href="/#contact" />
+                    <NavButton label="Into Begory" href="/about" />
+                    <NavButton label="Our Team" href="/team" />
                     <NavButton label="Our Services" href="/invest" />
-                    <NavButton label="Our Portfolio" href="/#loan-programs" />
+                    <NavButton label="Our Portfolio" href="/portfolio" />
                 </div>
 
                 {/* Contact Us — desktop only */}
                 <div className="hidden lg:block">
                     <Button variant="primary" size="sm" asChild>
-                        <a href="/#contact">Contact Us</a>
+                        <SmoothScrollLink href="/contact">Contact Us</SmoothScrollLink>
                     </Button>
                 </div>
 
@@ -68,14 +69,14 @@ export default function Header() {
             {/* Mobile menu — shown when checkbox is checked */}
             <div className="lg:hidden hidden peer-checked/nav:block border-t bg-sidebar/95 backdrop-blur-md">
                 <nav className="flex flex-col px-4 py-2 max-w-7xl mx-auto">
-                    <NavButton label="Into Begory" href="/#why" />
-                    <NavButton label="Our Team" href="/#contact" />
+                    <NavButton label="Into Begory" href="/about" />
+                    <NavButton label="Our Team" href="/team" />
                     <NavButton label="Our Services" href="/invest" />
-                    <NavButton label="Our Portfolio" href="/#loan-programs" />
+                    <NavButton label="Our Portfolio" href="/portfolio" />
                 </nav>
                 <div className="px-4 pb-4">
                     <Button variant="primary" className="w-full" asChild>
-                        <a href="/#contact">Contact Us</a>
+                        <SmoothScrollLink href="/contact">Contact Us</SmoothScrollLink>
                     </Button>
                 </div>
             </div>

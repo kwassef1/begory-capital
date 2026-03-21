@@ -4,6 +4,7 @@ import Metric from "@/components/metrics";
 import Badge from "@/components/badge";
 import { Button } from "@/components/ui/button";
 import Card from "@/components/card";
+import SmoothScrollLink from "@/components/smooth-scroll-link";
 
 export default function Hero() {
     return (
@@ -29,10 +30,10 @@ export default function Hero() {
 
                     <div className="flex flex-wrap gap-3 mt-7 items-center">
                         <Button variant="primary" size="begory" asChild>
-                            <a href="#contact">Get pre-approved</a>
+                            <SmoothScrollLink href="/contact">Get pre-approved</SmoothScrollLink>
                         </Button>
                         <Button variant="outline" size="begory" asChild>
-                            <a href="#loan-programs">View loan programs</a>
+                            <SmoothScrollLink href="#loan-programs">View loan programs</SmoothScrollLink>
                         </Button>
                     </div>
 

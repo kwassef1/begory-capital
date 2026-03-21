@@ -5,7 +5,7 @@ import Badge from "@/components/badge";
 import Card from "@/components/card";
 import SplitLayout from "@/components/split";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import SmoothScrollLink from "@/components/smooth-scroll-link";
 
 export const metadata: Metadata = {
     title: "Invest with Us — Earn Passive Income Backed by Real Estate",
@@ -85,7 +85,7 @@ export default function InvestPage() {
                             not stocks, not crypto, and not unsecured notes.
                         </p>
                         <Button variant="primary" size="lg" asChild>
-                            <a href="#investor-form">Request Investor Information</a>
+                            <SmoothScrollLink href="/contact#investor-form">Request Investor Information</SmoothScrollLink>
                         </Button>
                     </div>
                 </section>
@@ -236,117 +236,22 @@ export default function InvestPage() {
                     </Card>
                 </section>
 
-                {/* Investor form */}
-                <section
-                    id="investor-form"
-                    className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-16"
-                >
-                    <div className="grid md:grid-cols-2 gap-7 items-start">
-                        {/* Left — context */}
-                        <div className="flex flex-col gap-4">
-                            <div className="flex flex-col gap-2">
-                                <Badge>GET STARTED</Badge>
-                                <h2 className="text-2xl font-semibold text-foreground leading-snug">
-                                    Your capital deserves more than a bank account.
-                                </h2>
-                                <p className="text-sm text-muted-foreground">
-                                    Let it work for you — secured by real estate. Share your details
-                                    and we&apos;ll send over investor materials and schedule a call
-                                    with our team.
-                                </p>
-                            </div>
-                            <Card className="p-5 flex flex-col gap-2 text-sm">
-                                <div>
-                                    <span className="font-medium text-foreground">Phone:</span>{" "}
-                                    <a href="tel:+15513328570" className="text-muted-foreground hover:text-primary transition">
-                                        551-332-8570
-                                    </a>
-                                </div>
-                                <div>
-                                    <span className="font-medium text-foreground">Email:</span>{" "}
-                                    <a href="mailto:info@begorycapital.com" className="text-muted-foreground hover:text-primary transition">
-                                        info@begorycapital.com
-                                    </a>
-                                </div>
-                            </Card>
-                            <p className="text-xs text-muted-foreground">
-                                This form does not constitute an offer to sell or solicitation of
-                                an offer to buy any security. All investments are subject to risk
-                                and investor qualification.
-                            </p>
-                        </div>
-
-                        {/* Right — form */}
-                        <form className="rounded-2xl border border-border bg-card p-6 shadow-sm flex flex-col gap-4">
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                <div className="flex flex-col gap-1">
-                                    <label className="text-xs text-muted-foreground" htmlFor="inv-name">
-                                        Full name
-                                    </label>
-                                    <Input id="inv-name" type="text" placeholder="Your name" autoComplete="name" />
-                                </div>
-                                <div className="flex flex-col gap-1">
-                                    <label className="text-xs text-muted-foreground" htmlFor="inv-email">Email</label>
-                                    <Input id="inv-email" type="email" placeholder="you@example.com" autoComplete="email" />
-                                </div>
-                                <div className="flex flex-col gap-1">
-                                    <label className="text-xs text-muted-foreground" htmlFor="inv-phone">Phone</label>
-                                    <Input id="inv-phone" type="tel" placeholder="551-332-8570" autoComplete="tel" />
-                                </div>
-                                <div className="flex flex-col gap-1">
-                                    <label className="text-xs text-muted-foreground" htmlFor="inv-amount">
-                                        Investment range
-                                    </label>
-                                    <select
-                                        id="inv-amount"
-                                        className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-                                    >
-                                        <option>Under $100k</option>
-                                        <option>$100k – $250k</option>
-                                        <option>$250k – $500k</option>
-                                        <option>$500k – $1M</option>
-                                        <option>$1M+</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div className="flex flex-col gap-1">
-                                <label className="text-xs text-muted-foreground" htmlFor="inv-investor-type">
-                                    Investor type
-                                </label>
-                                <select
-                                    id="inv-investor-type"
-                                    className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-                                >
-                                    <option>Individual investor</option>
-                                    <option>Self-directed IRA</option>
-                                    <option>Business / entity</option>
-                                    <option>Family office</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
-
-                            <div className="flex flex-col gap-1">
-                                <label className="text-xs text-muted-foreground" htmlFor="inv-message">
-                                    Anything you&apos;d like us to know
-                                </label>
-                                <textarea
-                                    id="inv-message"
-                                    rows={3}
-                                    placeholder="Investment goals, timeline, questions, or anything else..."
-                                    className="flex w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring resize-none"
-                                />
-                            </div>
-
-                            <Button variant="primary" type="submit" className="w-full">
+                {/* CTA */}
+                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-20">
+                    <Card variant="dark" className="rounded-3xl px-8 py-10 text-center flex flex-col items-center gap-4">
+                        <h2 className="text-2xl font-semibold text-gray-100">
+                            Ready to put your capital to work?
+                        </h2>
+                        <p className="text-sm text-gray-400 max-w-md">
+                            Share your details and we&apos;ll send over investor materials and schedule
+                            a call with our team — usually within 24 hours.
+                        </p>
+                        <Button variant="primary" size="lg" asChild>
+                            <SmoothScrollLink href="/contact#investor-form">
                                 Request Investor Information
-                            </Button>
-                            <p className="text-xs text-muted-foreground">
-                                By submitting, you agree to be contacted by Begory Capital
-                                regarding investment opportunities.
-                            </p>
-                        </form>
-                    </div>
+                            </SmoothScrollLink>
+                        </Button>
+                    </Card>
                 </section>
 
             </main>

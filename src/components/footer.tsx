@@ -2,10 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 const navLinks = [
-    { label: "Into Begory", href: "/#why" },
-    { label: "Our Team", href: "/#contact" },
+    { label: "Into Begory", href: "/about" },
+    { label: "Our Team", href: "/team" },
     { label: "Our Services", href: "/invest" },
-    { label: "Our Portfolio", href: "/#loan-programs" },
+    { label: "Our Portfolio", href: "/portfolio" },
     { label: "Contact Us", href: "/#contact" },
 ];
 

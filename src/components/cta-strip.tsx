@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import SmoothScrollLink from "@/components/smooth-scroll-link";
 
 export default function CTAStrip() {
     return (
@@ -14,7 +15,7 @@ export default function CTAStrip() {
                 </div>
                 <div>
                     <Button variant="primary" size="lg" asChild>
-                        <a href="#contact">Start a conversation</a>
+                        <SmoothScrollLink href="/contact">Start a conversation</SmoothScrollLink>
                     </Button>
                 </div>
             </div>

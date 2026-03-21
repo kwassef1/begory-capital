@@ -99,7 +99,7 @@ function Right() {
 
 export default function HowItWorks() {
     return (
-        <section id="how-it-works">
+        <section id="how-it-works" className="scroll-mt-20">
             <SplitLayout left={<Left />} right={<Right />} ratio="55-45" />
         </section>
     );
