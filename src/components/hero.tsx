@@ -4,6 +4,7 @@ import Metric from "@/components/metrics";
 import Badge from "@/components/badge";
 import { Button } from "@/components/ui/button";
 import Card from "@/components/card";
+import SmoothScrollLink from "@/components/smooth-scroll-link";
 
 export default function Hero() {
     return (
@@ -27,12 +28,12 @@ export default function Hero() {
                         red tape.
                     </p>
 
-                    <div className="flex flex-wrap gap-3 mt-7 items-center radius-4xl rounded-full">
-                        <Button variant="primary" size="begory" type="submit">
-                            Get pre-approved
+                    <div className="flex flex-wrap gap-3 mt-7 items-center">
+                        <Button variant="primary" size="begory" asChild>
+                            <SmoothScrollLink href="/contact">Get pre-approved</SmoothScrollLink>
                         </Button>
-                        <Button variant="outline" size="begory">
-                            View loan programs
+                        <Button variant="outline" size="begory" asChild>
+                            <SmoothScrollLink href="#loan-programs">View loan programs</SmoothScrollLink>
                         </Button>
                     </div>
 
@@ -64,7 +65,7 @@ export default function Hero() {
                 </div>
             }
             right={
-                <Card className="max-w-full my-auto">
+                <Card variant="default" className="my-auto p-6">
                     <DSCRSample />
                 </Card>
             }

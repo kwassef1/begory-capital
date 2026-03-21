@@ -2,11 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 const navLinks = [
-    { label: "Into Begory", href: "#" },
-    { label: "Our Team", href: "#" },
-    { label: "Our Services", href: "#" },
-    { label: "Our Portfolio", href: "#" },
-    { label: "Contact Us", href: "#" },
+    { label: "Into Begory", href: "/about" },
+    { label: "Our Team", href: "/team" },
+    { label: "Our Services", href: "/invest" },
+    { label: "Our Portfolio", href: "/portfolio" },
+    { label: "Contact Us", href: "/#contact" },
 ];
 
 const socialLinks = [
@@ -62,16 +62,16 @@ export default function Footer() {
                         </p>
                         <ul className="flex flex-col gap-1.5 text-sm text-muted-foreground">
                             <li>
-                                <a href="mailto:contact@begorycapital.com" className="hover:text-primary transition">
-                                    contact@begorycapital.com
+                                <a href="mailto:info@begorycapital.com" className="hover:text-primary transition">
+                                    info@begorycapital.com
                                 </a>
                             </li>
                             <li>
-                                <a href="tel:+12015550100" className="hover:text-primary transition">
-                                    (201) 555-0100
+                                <a href="tel:+15513328570" className="hover:text-primary transition">
+                                    551-332-8570
                                 </a>
                             </li>
-                            <li>Jersey City, NJ</li>
+                            <li>151 W Passaic St, Rochelle Park, NJ</li>
                         </ul>
                     </div>
 
