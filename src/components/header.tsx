@@ -19,30 +19,14 @@ export default function Header() {
 
                 {/* Logo — centered on mobile, left-aligned on desktop */}
                 <div className="flex flex-1 lg:flex-none justify-center lg:justify-start">
-                    <div className="flex items-center">
+                    <Link title="Home" aria-label="Home Page" href="/">
                         <Image
                             src="/icon.svg"
-                            width={36}
-                            height={36}
-                            alt="Begory Icon"
+                            height={40}
+                            width={160}
+                            alt="Begory Capital"
                         />
-                        <Button
-                            className="text-xl font-bold px-2 mt-1 hover:bg-transparent"
-                            variant="ghost"
-                            asChild
-                        >
-                            <Link title="Home" aria-label="Home Page" href="/">
-                                <div>
-                                    <h2 className="text-xl font-bolder">
-                                        Begory Capital
-                                    </h2>
-                                    <h1 className="hidden sm:block text-sm font-medium">
-                                        PRIVATE LENDING • REAL ESTATE
-                                    </h1>
-                                </div>
-                            </Link>
-                        </Button>
-                    </div>
+                    </Link>
                 </div>
 
                 {/* Desktop nav — center */}
