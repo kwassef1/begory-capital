@@ -155,6 +155,32 @@ export default function AboutPage() {
                     </div>
                 </section>
 
+                {/* Network */}
+                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                    <Card variant="dark" className="rounded-3xl p-8 flex flex-col gap-6">
+                        <div className="flex flex-col gap-1.5">
+                            <div className="text-xs uppercase tracking-wider text-gray-400">OUR NETWORK</div>
+                            <h2 className="text-xl font-semibold text-gray-100">
+                                Beyond Begory, we work with a tight network of professionals.
+                            </h2>
+                            <p className="text-sm text-gray-400">
+                                When you borrow with Begory Capital, you get access to relationships we&apos;ve
+                                built over years in the NY and NJ markets.
+                            </p>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                            {["Real estate attorneys", "Title companies", "Appraisers & inspectors", "Licensed brokers (NY & NJ)", "Construction professionals"].map((p) => (
+                                <span
+                                    key={p}
+                                    className="px-3 py-1.5 rounded-full border border-white/10 text-sm text-gray-300"
+                                >
+                                    {p}
+                                </span>
+                            ))}
+                        </div>
+                    </Card>
+                </section>
+
                 {/* CTA */}
                 <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-20">
                     <Card variant="dark" className="rounded-3xl px-8 py-10 text-center flex flex-col items-center gap-4">

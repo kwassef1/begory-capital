@@ -33,7 +33,7 @@ export default function Header() {
                 {/* Desktop nav — center */}
                 <div className="hidden lg:flex flex-1 justify-center">
                     <NavButton label="Into Begory" href="/about" />
-                    <NavButton label="Our Team" href="/team" />
+                    <NavButton label="Tools" href="/tools" />
                     <NavButton label="Our Services" href="/invest" />
                     <NavButton label="Our Portfolio" href="/portfolio" />
                 </div>
@@ -70,7 +70,7 @@ export default function Header() {
             <div className="lg:hidden hidden peer-checked/nav:block border-t bg-sidebar/95 backdrop-blur-md">
                 <nav className="flex flex-col px-4 py-2 max-w-7xl mx-auto">
                     <NavButton label="Into Begory" href="/about" />
-                    <NavButton label="Our Team" href="/team" />
+                    <NavButton label="Tools" href="/tools" />
                     <NavButton label="Our Services" href="/invest" />
                     <NavButton label="Our Portfolio" href="/portfolio" />
                 </nav>
