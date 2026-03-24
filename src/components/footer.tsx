@@ -4,7 +4,6 @@ import Image from "next/image";
 const navLinks = [
     { label: "Into Begory", href: "/about" },
     { label: "Tools", href: "/tools" },
-    { label: "Our Services", href: "/invest" },
     { label: "Our Portfolio", href: "/portfolio" },
     { label: "Contact Us", href: "/contact" },
 ];
