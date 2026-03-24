@@ -1,16 +1,56 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 type ContactType = "borrower" | "investor";
+
+function buildDealSummary(p: URLSearchParams): string {
+    const deal = p.get("deal");
+    if (deal === "flip") {
+        return [
+            "Deal type: Fix & Flip",
+            p.get("purchase") && `Purchase price: $${Number(p.get("purchase")).toLocaleString()}`,
+            p.get("rehab") && `Rehab budget: $${Number(p.get("rehab")).toLocaleString()}`,
+            p.get("arv") && `ARV: $${Number(p.get("arv")).toLocaleString()}`,
+            p.get("months") && `Holding period: ${p.get("months")} months`,
+            "---",
+            p.get("totalCost") && `Est. total cost: $${Number(p.get("totalCost")).toLocaleString()}`,
+            p.get("profit") && `Est. profit: $${Number(p.get("profit")).toLocaleString()}`,
+            p.get("roi") && `Est. ROI: ${p.get("roi")}%`,
+        ].filter(Boolean).join("\n");
+    }
+    if (deal === "rental") {
+        return [
+            "Deal type: DSCR Rental",
+            p.get("purchase") && `Purchase price: $${Number(p.get("purchase")).toLocaleString()}`,
+            p.get("down") && `Down payment: ${p.get("down")}%`,
+            p.get("rate") && `Interest rate: ${p.get("rate")}%`,
+            p.get("rent") && `Monthly rent: $${Number(p.get("rent")).toLocaleString()}`,
+            "---",
+            p.get("cashFlow") && `Est. monthly cash flow: $${Number(p.get("cashFlow")).toLocaleString()}`,
+            p.get("capRate") && `Cap rate: ${p.get("capRate")}%`,
+            p.get("coc") && `Cash-on-cash return: ${p.get("coc")}%`,
+        ].filter(Boolean).join("\n");
+    }
+    return "";
+}
 
 const selectClass = "flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
 const textareaClass = "flex w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring resize-none";
 
 export default function ContactForm() {
     const [type, setType] = useState<ContactType>("borrower");
+    const [details, setDetails] = useState("");
+    const params = useSearchParams();
+
+    useEffect(() => {
+        if (params.get("deal")) {
+            setDetails(buildDealSummary(params));
+        }
+    }, [params]);
 
     return (
         <form className="rounded-2xl border border-border bg-card p-6 shadow-sm flex flex-col gap-4 h-full">
@@ -120,6 +160,8 @@ export default function ContactForm() {
                 <textarea
                     id="cf-details"
                     rows={4}
+                    value={details}
+                    onChange={e => setDetails(e.target.value)}
                     placeholder={
                         type === "borrower"
                             ? "Address, purchase price, rehab budget, estimated value, and anything else we should know."

@@ -1,51 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Badge from "@/components/badge";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import SplitLayout from "@/components/split";
 
 function fmt(n: number) {
     return "$" + Math.round(n).toLocaleString();
-}
-
-function Left() {
-    return (
-        <div className="flex flex-col gap-6 h-full">
-            <div className="flex flex-col gap-2">
-                <Badge>RENTAL CALCULATOR</Badge>
-                <h2 className="text-2xl sm:text-3xl font-semibold text-foreground leading-snug">
-                    Analyze a rental &amp; see if Begory can finance it.
-                </h2>
-                <p className="text-sm text-muted-foreground">
-                    We estimate cash flow, cap rate, and cash-on-cash return. Include your contact info and this becomes a live deal we can follow up on.
-                </p>
-            </div>
-
-            <div className="rounded-2xl border border-border bg-card p-5 shadow-sm flex flex-col gap-4 flex-1">
-                <div className="text-sm font-semibold text-foreground">Investor &amp; property details</div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div className="flex flex-col gap-1">
-                        <label className="text-xs text-muted-foreground" htmlFor="rc-name">Full name</label>
-                        <Input id="rc-name" type="text" placeholder="Your name" autoComplete="name" />
-                    </div>
-                    <div className="flex flex-col gap-1">
-                        <label className="text-xs text-muted-foreground" htmlFor="rc-email">Email</label>
-                        <Input id="rc-email" type="email" placeholder="you@example.com" autoComplete="email" />
-                    </div>
-                    <div className="flex flex-col gap-1">
-                        <label className="text-xs text-muted-foreground" htmlFor="rc-phone">Phone</label>
-                        <Input id="rc-phone" type="tel" placeholder="551-332-8570" autoComplete="tel" />
-                    </div>
-                    <div className="flex flex-col gap-1">
-                        <label className="text-xs text-muted-foreground" htmlFor="rc-area">Property city / area</label>
-                        <Input id="rc-area" type="text" placeholder="City, state or neighborhood" autoComplete="off" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
 }
 
 type Field = { label: string; id: string; ph: string; step?: string };
@@ -67,21 +29,16 @@ const fields: Field[] = [
     { label: "Other annual expenses ($)", id: "rc-other-exp", ph: "0" },
 ];
 
-function Right() {
+export default function RentalCalculator() {
     const [vals, setVals] = useState<Record<string, string>>({});
     const [results, setResults] = useState<null | {
-        loanAmount: number;
-        monthlyPI: number;
-        cashFlow: number;
-        capRate: number;
-        cashInvested: number;
-        coc: number;
+        loanAmount: number; monthlyPI: number; cashFlow: number;
+        capRate: number; cashInvested: number; coc: number;
     }>(null);
 
     function set(id: string, v: string) {
         setVals(prev => ({ ...prev, [id]: v }));
     }
-
     function n(id: string) { return parseFloat(vals[id]) || 0; }
 
     function calculate() {
@@ -110,59 +67,71 @@ function Right() {
     }
 
     return (
-        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm flex flex-col gap-4 h-full">
-            <div className="text-sm font-semibold text-foreground">Rental assumptions</div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {fields.map(({ label, id, ph, step }) => (
-                    <div key={id} className="flex flex-col gap-1">
-                        <label className="text-xs text-muted-foreground" htmlFor={id}>{label}</label>
-                        <Input
-                            id={id}
-                            type="number"
-                            placeholder={ph}
-                            step={step}
-                            value={vals[id] ?? ""}
-                            onChange={e => set(id, e.target.value)}
-                            autoComplete="off"
-                        />
-                    </div>
-                ))}
-            </div>
+        <section id="rental-calculator" className="scroll-mt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-16">
+            <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-2">
+                    <Badge>RENTAL CALCULATOR</Badge>
+                    <h2 className="text-2xl sm:text-3xl font-semibold text-foreground leading-snug">
+                        Analyze a rental &amp; see if Begory can finance it.
+                    </h2>
+                    <p className="text-sm text-muted-foreground">
+                        Estimate cash flow, cap rate, and cash-on-cash return for any buy-and-hold property.
+                    </p>
+                </div>
 
-            <Button variant="primary" onClick={calculate}>Run rental analysis</Button>
-
-            <p className="text-xs text-muted-foreground">
-                This is an estimate only. Begory Capital can review the real lease, taxes, and insurance to confirm numbers.
-            </p>
-
-            {results && (
-                <div className="border-t border-border pt-4 flex flex-col gap-2">
-                    <div className="text-sm font-semibold text-foreground">Estimated rental summary</div>
-                    <div className="grid grid-cols-2 gap-2">
-                        {[
-                            { label: "Loan amount", value: fmt(results.loanAmount) },
-                            { label: "Monthly mortgage (P&I)", value: fmt(results.monthlyPI) },
-                            { label: "Monthly cash flow", value: fmt(results.cashFlow) + " / mo" },
-                            { label: "Cap rate", value: results.capRate.toFixed(1) + "%" },
-                            { label: "Cash invested", value: fmt(results.cashInvested) },
-                            { label: "Cash-on-cash return", value: results.coc.toFixed(1) + "%" },
-                        ].map(({ label, value }) => (
-                            <div key={label} className="rounded-xl border border-border bg-background px-3 py-2">
-                                <div className="text-xs text-muted-foreground">{label}</div>
-                                <div className="text-base font-semibold text-foreground">{value}</div>
+                <div className="rounded-2xl border border-border bg-card p-5 shadow-sm flex flex-col gap-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                        {fields.map(({ label, id, ph, step }) => (
+                            <div key={id} className="flex flex-col gap-1">
+                                <label className="text-xs text-muted-foreground" htmlFor={id}>{label}</label>
+                                <Input
+                                    id={id}
+                                    type="number"
+                                    placeholder={ph}
+                                    step={step}
+                                    value={vals[id] ?? ""}
+                                    onChange={e => set(id, e.target.value)}
+                                    autoComplete="off"
+                                />
                             </div>
                         ))}
+                        <div className="flex flex-col gap-1 col-start-2 sm:col-start-3 lg:col-start-4">
+                            <span className="text-xs invisible">_</span>
+                            <Button variant="primary" onClick={calculate} className="w-full">Run rental analysis</Button>
+                        </div>
                     </div>
-                </div>
-            )}
-        </div>
-    );
-}
 
-export default function RentalCalculator() {
-    return (
-        <section id="rental-calculator" className="scroll-mt-20">
-            <SplitLayout left={<Left />} right={<Right />} ratio="45-55" align="stretch" />
+                    <p className="text-xs text-muted-foreground">Estimates only — not a commitment to lend.</p>
+
+                    {results && (
+                        <div className="border-t border-border pt-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            {[
+                                { label: "Loan amount", value: fmt(results.loanAmount) },
+                                { label: "Monthly mortgage (P&I)", value: fmt(results.monthlyPI) },
+                                { label: "Monthly cash flow", value: fmt(results.cashFlow) + " / mo" },
+                                { label: "Cap rate", value: results.capRate.toFixed(1) + "%" },
+                                { label: "Cash invested", value: fmt(results.cashInvested) },
+                                { label: "Cash-on-cash return", value: results.coc.toFixed(1) + "%" },
+                            ].map(({ label, value }) => (
+                                <div key={label} className="rounded-xl border border-border bg-background px-3 py-2">
+                                    <div className="text-xs text-muted-foreground">{label}</div>
+                                    <div className="text-base font-semibold text-foreground">{value}</div>
+                                </div>
+                            ))}
+                            {results && (
+                                <div className="flex items-center justify-between gap-4 border-t border-border pt-3">
+                                    <p className="text-sm text-muted-foreground">Want to move forward on this deal?</p>
+                                    <Button variant="primary" size="sm" asChild>
+                                        <Link href={`/contact?deal=rental&purchase=${vals["rc-purchase"]}&down=${vals["rc-down"]}&rate=${vals["rc-rate"]}&rent=${vals["rc-rent"]}&cashFlow=${Math.round(results.cashFlow)}&capRate=${results.capRate.toFixed(1)}&coc=${results.coc.toFixed(1)}`}>
+                                            Discuss this deal →
+                                        </Link>
+                                    </Button>
+                                </div>
+                            )}
+                        </div>
+                    )}
+                </div>
+            </div>
         </section>
     );
 }
