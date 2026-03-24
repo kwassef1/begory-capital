@@ -88,7 +88,7 @@ export default function FixFlipCalculator() {
                         ))}
                         <div className="col-span-full flex items-center justify-between gap-4">
                             <p className="text-xs text-muted-foreground">Estimates only — not a commitment to lend.</p>
-                            <Button variant="primary" onClick={calculate}>
+                            <Button variant="soft" onClick={calculate}>
                                 Get my flip analysis
                             </Button>
                         </div>
@@ -129,11 +129,11 @@ export default function FixFlipCalculator() {
                                     </div>
                                 ))}
                             </div>
-                            <div className="flex items-center justify-between gap-4">
+                            <div className="flex items-center justify-between gap-4 border-t border-border pt-3">
                                 <p className="text-sm text-muted-foreground">
                                     Want to move forward on this deal?
                                 </p>
-                                <Button variant="primary" size="sm" asChild>
+                                <Button variant="primary" asChild>
                                     <Link
                                         href={`/contact?deal=flip&purchase=${vals["ff-purchase"]}&rehab=${vals["ff-rehab"]}&arv=${vals["ff-arv"]}&months=${vals["ff-months"]}&closing=${vals["ff-closing"]}&hpm=${vals["ff-hpm"]}&totalCost=${Math.round(results.totalCost)}&profit=${Math.round(results.profit)}&roi=${results.roi.toFixed(1)}`}
                                     >

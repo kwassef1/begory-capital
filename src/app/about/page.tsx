@@ -189,7 +189,7 @@ export default function AboutPage() {
                         </h2>
                         <p className="text-sm text-gray-400 max-w-md">
                             Tell us about your deal and we&apos;ll respond with structure options, estimated
-                            terms, and next steps — usually within 24 hours.
+                            terms, and next steps.
                         </p>
                         <Button variant="primary" size="lg" asChild>
                             <SmoothScrollLink href="/contact">Start a conversation</SmoothScrollLink>

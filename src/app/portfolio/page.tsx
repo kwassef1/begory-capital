@@ -253,7 +253,7 @@ export default function PortfolioPage() {
                         <p className="text-sm text-gray-400 max-w-md">
                             Tell us the property, the plan, and the numbers.
                             We&apos;ll come back with structure options and
-                            estimated terms — usually within 24 hours.
+                            estimated terms — fast.
                         </p>
                         <Button variant="primary" size="lg" asChild>
                             <SmoothScrollLink href="/contact">

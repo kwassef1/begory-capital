@@ -53,7 +53,7 @@ export default function DSCRSample() {
 
             {/* Timeline */}
             <div className="border-t border-dashed border-gray-300 pt-3 flex items-center justify-between flex-wrap gap-2 text-xs text-gray-500">
-                <span>⏱ Pre-approval in 24 hours</span>
+                <span>⏱ Fast pre-approval</span>
                 <span className="px-2.5 py-1 rounded-full bg-foreground/6 text-foreground font-medium">
                     Closing target: 10–14 days
                 </span>
