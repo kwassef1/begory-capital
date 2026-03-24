@@ -256,8 +256,8 @@ export default function PortfolioPage() {
                             estimated terms — fast.
                         </p>
                         <Button variant="primary" size="lg" asChild>
-                            <SmoothScrollLink href="/contact">
-                                Submit your deal
+                            <SmoothScrollLink href="/tools">
+                                Calculate your deal
                             </SmoothScrollLink>
                         </Button>
                     </Card>
