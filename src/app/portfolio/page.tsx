@@ -20,18 +20,29 @@ const deals = [
         loanAmount: "$285,000",
         ltv: "78% of purchase",
         term: "12 months",
-        outcome: "Renovated all 3 units, sold to owner-occupant at $415,000. Borrower netted ~$90k after costs.",
-        highlights: ["Closed in 9 days", "Interest-only structure", "Draw schedule matched scope"],
+        outcome:
+            "Renovated all 3 units, sold to owner-occupant at $415,000. Borrower netted ~$90k after costs.",
+        highlights: [
+            "Closed in 9 days",
+            "Interest-only structure",
+            "Draw schedule matched scope",
+        ],
     },
     {
         tag: "Bridge Loan",
         location: "Jersey City, NJ",
-        headline: "Mixed-use building — lease-up bridge while refinancing to perm",
+        headline:
+            "Mixed-use building — lease-up bridge while refinancing to perm",
         loanAmount: "$620,000",
         ltv: "70% of as-is value",
         term: "18 months",
-        outcome: "Gave investor time to stabilize retail tenant and improve NOI before refinancing into a DSCR loan.",
-        highlights: ["No prepayment penalty", "Rate lock at close", "Coordinated exit with DSCR lender"],
+        outcome:
+            "Gave investor time to stabilize retail tenant and improve NOI before refinancing into a DSCR loan.",
+        highlights: [
+            "No prepayment penalty",
+            "Rate lock at close",
+            "Coordinated exit with DSCR lender",
+        ],
     },
     {
         tag: "DSCR Rental",
@@ -40,8 +51,13 @@ const deals = [
         loanAmount: "$480,000",
         ltv: "75% of appraised value",
         term: "30-year fixed",
-        outcome: "Cash-out refinance funded acquisition of next investment property. DSCR of 1.28x at close.",
-        highlights: ["No tax returns", "Underwritten on DSCR only", "Closed in 18 days"],
+        outcome:
+            "Cash-out refinance funded acquisition of next investment property. DSCR of 1.28x at close.",
+        highlights: [
+            "No tax returns",
+            "Underwritten on DSCR only",
+            "Closed in 18 days",
+        ],
     },
     {
         tag: "Fix & Flip",
@@ -50,8 +66,13 @@ const deals = [
         loanAmount: "$195,000",
         ltv: "80% of purchase + rehab",
         term: "9 months",
-        outcome: "Navigated title issue that would have killed the deal at a bank. Closed in 11 days. Sold for $370,000.",
-        highlights: ["Title issue resolved at close", "Full rehab draw schedule", "11-day close"],
+        outcome:
+            "Navigated title issue that would have killed the deal at a bank. Closed in 11 days. Sold for $370,000.",
+        highlights: [
+            "Title issue resolved at close",
+            "Full rehab draw schedule",
+            "11-day close",
+        ],
     },
     {
         tag: "Bridge Loan",
@@ -60,8 +81,13 @@ const deals = [
         loanAmount: "$900,000",
         ltv: "65% of projected sellout",
         term: "12 months",
-        outcome: "Funded acquisition and light renovation of a 6-unit building mid-conversion. All units sold within 8 months.",
-        highlights: ["Flexible paydown structure", "Partial release provisions", "No extension fee needed"],
+        outcome:
+            "Funded acquisition and light renovation of a 6-unit building mid-conversion. All units sold within 8 months.",
+        highlights: [
+            "Flexible paydown structure",
+            "Partial release provisions",
+            "No extension fee needed",
+        ],
     },
     {
         tag: "DSCR Rental",
@@ -70,8 +96,13 @@ const deals = [
         loanAmount: "$750,000",
         ltv: "70% of appraised value",
         term: "30-year ARM",
-        outcome: "Borrower pulled out $180k equity to use as down payment on a 2nd rental. DSCR of 1.35x.",
-        highlights: ["Cash-out refinance", "ARM product for lower rate", "Portfolio-friendly structure"],
+        outcome:
+            "Borrower pulled out $180k equity to use as down payment on a 2nd rental. DSCR of 1.35x.",
+        highlights: [
+            "Cash-out refinance",
+            "ARM product for lower rate",
+            "Portfolio-friendly structure",
+        ],
     },
 ];
 
@@ -93,17 +124,19 @@ export default function PortfolioPage() {
         <div className="min-h-screen bg-gray-50 flex flex-col">
             <Header />
             <main className="flex-1">
-
                 {/* Hero */}
                 <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                     <div className="max-w-2xl mx-auto flex flex-col gap-5 items-center text-center">
                         <Badge>OUR PORTFOLIO</Badge>
                         <h1 className="text-3xl sm:text-4xl font-semibold text-foreground leading-snug">
-                            Deals we&apos;ve funded. Results that speak for themselves.
+                            Deals we&apos;ve funded. Results that speak for
+                            themselves.
                         </h1>
                         <p className="text-base text-muted-foreground">
-                            Below are representative examples of loans we&apos;ve closed. Details are illustrative —
-                            specific deal terms vary based on property, borrower, and market conditions.
+                            Below are representative examples of loans
+                            we&apos;ve closed. Details are illustrative —
+                            specific deal terms vary based on property,
+                            borrower, and market conditions.
                         </p>
                     </div>
                 </section>
@@ -112,9 +145,16 @@ export default function PortfolioPage() {
                 <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                         {stats.map(({ value, label }) => (
-                            <Card key={label} className="p-5 flex flex-col gap-1 items-center text-center">
-                                <div className="text-2xl font-semibold text-foreground">{value}</div>
-                                <div className="text-xs text-muted-foreground">{label}</div>
+                            <Card
+                                key={label}
+                                className="p-5 flex flex-col gap-1 items-center text-center"
+                            >
+                                <div className="text-2xl font-semibold text-foreground">
+                                    {value}
+                                </div>
+                                <div className="text-xs text-muted-foreground">
+                                    {label}
+                                </div>
                             </Card>
                         ))}
                     </div>
@@ -123,63 +163,105 @@ export default function PortfolioPage() {
                 {/* Deal grid */}
                 <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                        {deals.map(({ tag, location, headline, loanAmount, ltv, term, outcome, highlights }) => (
-                            <Card key={headline} className="p-6 flex flex-col gap-4">
-                                <div className="flex items-center justify-between gap-2">
-                                    <span className={`px-2.5 py-1 rounded-full border text-xs font-medium ${tagColors[tag]}`}>
-                                        {tag}
-                                    </span>
-                                    <span className="text-xs text-muted-foreground">{location}</span>
-                                </div>
+                        {deals.map(
+                            ({
+                                tag,
+                                location,
+                                headline,
+                                loanAmount,
+                                ltv,
+                                term,
+                                outcome,
+                                highlights,
+                            }) => (
+                                <Card
+                                    key={headline}
+                                    className="p-6 flex flex-col gap-4"
+                                >
+                                    <div className="flex items-center justify-between gap-2">
+                                        <span
+                                            className={`px-2.5 py-1 rounded-full border text-xs font-medium ${tagColors[tag]}`}
+                                        >
+                                            {tag}
+                                        </span>
+                                        <span className="text-xs text-muted-foreground">
+                                            {location}
+                                        </span>
+                                    </div>
 
-                                <div>
-                                    <div className="text-sm font-semibold text-foreground leading-snug">{headline}</div>
-                                </div>
-
-                                <div className="grid grid-cols-3 gap-2">
-                                    {[
-                                        { label: "Loan", value: loanAmount },
-                                        { label: "LTV", value: ltv },
-                                        { label: "Term", value: term },
-                                    ].map(({ label, value }) => (
-                                        <div key={label} className="flex flex-col gap-0.5">
-                                            <div className="text-xs text-muted-foreground">{label}</div>
-                                            <div className="text-xs font-semibold text-foreground">{value}</div>
+                                    <div>
+                                        <div className="text-sm font-semibold text-foreground leading-snug">
+                                            {headline}
                                         </div>
-                                    ))}
-                                </div>
+                                    </div>
 
-                                <p className="text-sm text-muted-foreground">{outcome}</p>
+                                    <div className="grid grid-cols-3 gap-2">
+                                        {[
+                                            {
+                                                label: "Loan",
+                                                value: loanAmount,
+                                            },
+                                            { label: "LTV", value: ltv },
+                                            { label: "Term", value: term },
+                                        ].map(({ label, value }) => (
+                                            <div
+                                                key={label}
+                                                className="flex flex-col gap-0.5"
+                                            >
+                                                <div className="text-xs text-muted-foreground">
+                                                    {label}
+                                                </div>
+                                                <div className="text-xs font-semibold text-foreground">
+                                                    {value}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
 
-                                <div className="mt-auto flex flex-col gap-1.5">
-                                    {highlights.map((h) => (
-                                        <div key={h} className="flex items-center gap-2 text-xs text-muted-foreground">
-                                            <span className="text-primary shrink-0">✔</span>
-                                            {h}
-                                        </div>
-                                    ))}
-                                </div>
-                            </Card>
-                        ))}
+                                    <p className="text-sm text-muted-foreground">
+                                        {outcome}
+                                    </p>
+
+                                    <div className="mt-auto flex flex-col gap-1.5">
+                                        {highlights.map((h) => (
+                                            <div
+                                                key={h}
+                                                className="flex items-center gap-2 text-xs text-muted-foreground"
+                                            >
+                                                <span className="text-primary shrink-0">
+                                                    ✔
+                                                </span>
+                                                {h}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </Card>
+                            ),
+                        )}
                     </div>
                 </section>
 
                 {/* CTA */}
-                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-20">
-                    <Card variant="dark" className="rounded-3xl px-8 py-10 text-center flex flex-col items-center gap-4">
+                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 ">
+                    <Card
+                        variant="dark"
+                        className="rounded-3xl px-8 py-10 text-center flex flex-col items-center gap-4"
+                    >
                         <h2 className="text-2xl font-semibold text-gray-100">
                             Have a deal that looks like one of these?
                         </h2>
                         <p className="text-sm text-gray-400 max-w-md">
-                            Tell us the property, the plan, and the numbers. We&apos;ll come back with structure
-                            options and estimated terms — usually within 24 hours.
+                            Tell us the property, the plan, and the numbers.
+                            We&apos;ll come back with structure options and
+                            estimated terms — usually within 24 hours.
                         </p>
                         <Button variant="primary" size="lg" asChild>
-                            <SmoothScrollLink href="/contact">Submit your deal</SmoothScrollLink>
+                            <SmoothScrollLink href="/contact">
+                                Submit your deal
+                            </SmoothScrollLink>
                         </Button>
                     </Card>
                 </section>
-
             </main>
             <Footer />
         </div>
