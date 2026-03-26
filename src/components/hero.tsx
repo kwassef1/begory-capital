@@ -30,10 +30,14 @@ export default function Hero() {
 
                     <div className="flex flex-wrap gap-3 mt-7 items-center">
                         <Button variant="primary" size="begory" asChild>
-                            <SmoothScrollLink href="/contact">Get pre-approved</SmoothScrollLink>
+                            <SmoothScrollLink href="/tools">
+                                Get pre-approved
+                            </SmoothScrollLink>
                         </Button>
                         <Button variant="outline" size="begory" asChild>
-                            <SmoothScrollLink href="#loan-programs">View loan programs</SmoothScrollLink>
+                            <SmoothScrollLink href="#loan-programs">
+                                View loan programs
+                            </SmoothScrollLink>
                         </Button>
                     </div>
 

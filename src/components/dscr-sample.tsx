@@ -16,17 +16,14 @@ export default function DSCRSample() {
                 </span>
             </div>
 
-            {/* Tabs */}
-            <div className="flex flex-wrap gap-1.5 mb-4">
-                <span className="px-3 py-1 rounded-full text-xs font-medium bg-foreground text-gray-50 border border-foreground">
-                    Rental (DSCR)
-                </span>
-                <span className="px-3 py-1 rounded-full text-xs border border-gray-200 text-foreground bg-white/80">
-                    Fix &amp; flip
-                </span>
-                <span className="px-3 py-1 rounded-full text-xs border border-gray-200 text-foreground bg-white/80">
-                    Bridge
-                </span>
+            {/* Loan types */}
+            <div className="flex flex-wrap items-center gap-1.5 mb-4">
+                <span className="text-xs text-gray-400 mr-0.5">Loan types:</span>
+                {["Rental (DSCR)", "Fix & flip", "Bridge"].map((t) => (
+                    <span key={t} className="px-3 py-1 rounded-full text-xs border border-gray-200 text-gray-500 bg-white/80">
+                        {t}
+                    </span>
+                ))}
             </div>
 
             {/* Loan boxes */}
@@ -53,7 +50,7 @@ export default function DSCRSample() {
 
             {/* Timeline */}
             <div className="border-t border-dashed border-gray-300 pt-3 flex items-center justify-between flex-wrap gap-2 text-xs text-gray-500">
-                <span>⏱ Pre-approval in 24 hours</span>
+                <span>⏱ Fast pre-approval</span>
                 <span className="px-2.5 py-1 rounded-full bg-foreground/6 text-foreground font-medium">
                     Closing target: 10–14 days
                 </span>

@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -77,7 +78,7 @@ export default function ContactPage() {
                         bare
                         ratio="50-50"
                         align="stretch"
-                        left={<ContactForm />}
+                        left={<Suspense><ContactForm /></Suspense>}
                         right={
                             <div className="flex flex-col gap-6 h-full">
                                 <div className="flex flex-col gap-1.5">

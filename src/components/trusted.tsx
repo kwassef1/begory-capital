@@ -7,7 +7,7 @@ const pills = [
 
 export default function Trusted() {
     return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-border bg-white/90 px-5 py-3.5">
                 <span className="text-xs uppercase tracking-widest text-muted-foreground">
                     Trusted by investors, agents &amp; real estate professionals

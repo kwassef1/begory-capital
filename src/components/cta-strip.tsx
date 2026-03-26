@@ -10,12 +10,16 @@ export default function CTAStrip() {
                         Ready to talk about your next deal?
                     </h3>
                     <p className="mt-1.5 text-sm text-gray-400">
-                        Share a few details about the property and your timeline. We&apos;ll respond with structure ideas, estimated terms, and next steps.
+                        Share a few details about the property and your
+                        timeline. We&apos;ll respond with structure ideas,
+                        estimated terms, and next steps.
                     </p>
                 </div>
                 <div>
                     <Button variant="primary" size="lg" asChild>
-                        <SmoothScrollLink href="/contact">Start a conversation</SmoothScrollLink>
+                        <SmoothScrollLink href="/tools">
+                            Start a conversation
+                        </SmoothScrollLink>
                     </Button>
                 </div>
             </div>

@@ -4,6 +4,12 @@ import NavButton from "@/components/nav";
 import SmoothScrollLink from "@/components/smooth-scroll-link";
 import Image from "next/image";
 
+const NAV_LINKS = [
+    { label: "Into Begory", href: "/about" },
+    { label: "Our Portfolio", href: "/portfolio" },
+    { label: "Tools", href: "/tools" },
+] as const;
+
 export default function Header() {
     return (
         <header className="sticky w-full bg-sidebar/90 backdrop-blur-md border-b top-0 z-30">
@@ -32,16 +38,21 @@ export default function Header() {
 
                 {/* Desktop nav — center */}
                 <div className="hidden lg:flex flex-1 justify-center">
-                    <NavButton label="Into Begory" href="/about" />
-                    <NavButton label="Our Team" href="/team" />
-                    <NavButton label="Our Services" href="/invest" />
-                    <NavButton label="Our Portfolio" href="/portfolio" />
+                    {NAV_LINKS.map((link) => (
+                        <NavButton
+                            key={link.href}
+                            label={link.label}
+                            href={link.href}
+                        />
+                    ))}
                 </div>
 
                 {/* Contact Us — desktop only */}
                 <div className="hidden lg:block">
                     <Button variant="primary" size="sm" asChild>
-                        <SmoothScrollLink href="/contact">Contact Us</SmoothScrollLink>
+                        <SmoothScrollLink href="/contact">
+                            Contact Us
+                        </SmoothScrollLink>
                     </Button>
                 </div>
 
@@ -59,9 +70,27 @@ export default function Header() {
                         xmlns="http://www.w3.org/2000/svg"
                         aria-hidden="true"
                     >
-                        <rect y="3" width="20" height="2" rx="1" fill="#374151" />
-                        <rect y="9" width="20" height="2" rx="1" fill="#374151" />
-                        <rect y="15" width="20" height="2" rx="1" fill="#374151" />
+                        <rect
+                            y="3"
+                            width="20"
+                            height="2"
+                            rx="1"
+                            fill="#374151"
+                        />
+                        <rect
+                            y="9"
+                            width="20"
+                            height="2"
+                            rx="1"
+                            fill="#374151"
+                        />
+                        <rect
+                            y="15"
+                            width="20"
+                            height="2"
+                            rx="1"
+                            fill="#374151"
+                        />
                     </svg>
                 </label>
             </div>
@@ -69,14 +98,19 @@ export default function Header() {
             {/* Mobile menu — shown when checkbox is checked */}
             <div className="lg:hidden hidden peer-checked/nav:block border-t bg-sidebar/95 backdrop-blur-md">
                 <nav className="flex flex-col px-4 py-2 max-w-7xl mx-auto">
-                    <NavButton label="Into Begory" href="/about" />
-                    <NavButton label="Our Team" href="/team" />
-                    <NavButton label="Our Services" href="/invest" />
-                    <NavButton label="Our Portfolio" href="/portfolio" />
+                    {NAV_LINKS.map((link) => (
+                        <NavButton
+                            key={link.href}
+                            label={link.label}
+                            href={link.href}
+                        />
+                    ))}
                 </nav>
                 <div className="px-4 pb-4">
                     <Button variant="primary" className="w-full" asChild>
-                        <SmoothScrollLink href="/contact">Contact Us</SmoothScrollLink>
+                        <SmoothScrollLink href="/contact">
+                            Contact Us
+                        </SmoothScrollLink>
                     </Button>
                 </div>
             </div>

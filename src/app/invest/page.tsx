@@ -244,7 +244,7 @@ export default function InvestPage() {
                         </h2>
                         <p className="text-sm text-gray-400 max-w-md">
                             Share your details and we&apos;ll send over investor materials and schedule
-                            a call with our team — usually within 24 hours.
+                            a call with our team.
                         </p>
                         <Button variant="primary" size="lg" asChild>
                             <SmoothScrollLink href="/contact#investor-form">
