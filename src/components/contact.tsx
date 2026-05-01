@@ -16,7 +16,6 @@ export default function Contact() {
                             </p>
                         </div>
                         <div className="flex flex-col gap-1.5 text-sm">
-                            <div><span className="font-medium text-foreground">Phone:</span> <a href="tel:+15513328570" className="text-muted-foreground hover:text-primary transition">551-332-8570</a></div>
                             <div><span className="font-medium text-foreground">Email:</span> <a href="mailto:info@begorycapital.com" className="text-muted-foreground hover:text-primary transition">info@begorycapital.com</a></div>
                         </div>
                         <div className="text-sm text-muted-foreground">
@@ -42,7 +41,7 @@ export default function Contact() {
                             </div>
                             <div className="flex flex-col gap-1">
                                 <label className="text-xs text-muted-foreground" htmlFor="c-phone">Phone</label>
-                                <Input id="c-phone" type="tel" placeholder="551-332-8570" autoComplete="tel" />
+                                <Input id="c-phone" type="tel" placeholder="Best number to reach you" autoComplete="tel" />
                             </div>
                             <div className="flex flex-col gap-1">
                                 <label className="text-xs text-muted-foreground" htmlFor="c-property-type">Property type</label>

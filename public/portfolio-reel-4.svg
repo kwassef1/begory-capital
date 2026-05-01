@@ -1,0 +1,20 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="180" y1="100" x2="1410" y2="1090" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F3E8FF"/>
+      <stop offset="0.5" stop-color="#C084FC"/>
+      <stop offset="1" stop-color="#7E22CE"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1200" rx="60" fill="#2E1065"/>
+  <rect x="64" y="64" width="1472" height="1072" rx="48" fill="url(#g1)"/>
+  <path d="M180 910H1420" stroke="#FAF5FF" stroke-width="18" stroke-linecap="round" opacity="0.8"/>
+  <path d="M260 860L520 640H700L940 520H1220L1370 420" stroke="#FAF5FF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+  <rect x="230" y="250" width="380" height="500" rx="30" fill="#FAF5FF" fill-opacity="0.9"/>
+  <rect x="292" y="320" width="256" height="360" rx="22" fill="#7E22CE" fill-opacity="0.14"/>
+  <rect x="710" y="210" width="560" height="600" rx="36" fill="#FAF5FF" fill-opacity="0.88"/>
+  <rect x="800" y="288" width="170" height="208" rx="24" fill="#7E22CE" fill-opacity="0.18"/>
+  <rect x="1010" y="288" width="170" height="208" rx="24" fill="#7E22CE" fill-opacity="0.18"/>
+  <rect x="800" y="528" width="380" height="188" rx="24" fill="#7E22CE" fill-opacity="0.14"/>
+  <text x="160" y="152" fill="#FAF5FF" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Mixed-Use Bridge</text>
+</svg>

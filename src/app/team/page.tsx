@@ -135,7 +135,7 @@ export default function TeamPage() {
                         </div>
                         <div className="flex flex-wrap gap-3 shrink-0">
                             <Button variant="outline" size="sm" asChild>
-                                <a href="tel:+15513328570">551-332-8570</a>
+                                <a href="mailto:info@begorycapital.com">Email us</a>
                             </Button>
                             <Button variant="primary" size="sm" asChild>
                                 <SmoothScrollLink href="/contact">Send a deal summary</SmoothScrollLink>

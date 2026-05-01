@@ -54,12 +54,6 @@ export default function ContactPage() {
                         </h1>
                         <div className="flex flex-wrap gap-4 justify-center text-sm">
                             <a
-                                href="tel:+15513328570"
-                                className="text-muted-foreground hover:text-primary transition font-medium"
-                            >
-                                📞 551-332-8570
-                            </a>
-                            <a
                                 href="mailto:info@begorycapital.com"
                                 className="text-muted-foreground hover:text-primary transition font-medium"
                             >

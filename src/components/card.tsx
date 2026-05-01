@@ -2,9 +2,7 @@ import React from "react";
 
 type CardVariant = "default" | "dark" | "plain";
 
-type CardProps = {
-    children: React.ReactNode;
-    className?: string;
+type CardProps = React.ComponentPropsWithoutRef<"div"> & {
     variant?: CardVariant;
 };
 
@@ -18,9 +16,13 @@ export default function Card({
     children,
     className = "",
     variant = "plain",
+    ...rest
 }: CardProps) {
     return (
-        <div className={`rounded-2xl ${variantClasses[variant]} ${className}`}>
+        <div
+            className={`rounded-2xl ${variantClasses[variant]} ${className}`}
+            {...rest}
+        >
             {children}
         </div>
     );

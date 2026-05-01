@@ -114,7 +114,7 @@ export default function ContactForm() {
                     <Input
                         id="cf-phone"
                         type="tel"
-                        placeholder="551-332-8570"
+                        placeholder="Best number to reach you"
                         autoComplete="tel"
                     />
                 </div>
