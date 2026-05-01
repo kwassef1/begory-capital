@@ -5,6 +5,7 @@ import Badge from "@/components/badge";
 import Card from "@/components/card";
 import SmoothScrollLink from "@/components/smooth-scroll-link";
 import { Button } from "@/components/ui/button";
+import PortfolioReel from "@/components/portfolio-reel";
 
 export const metadata: Metadata = {
     title: "Our Portfolio — Begory Capital",
@@ -159,6 +160,9 @@ export default function PortfolioPage() {
                         ))}
                     </div>
                 </section>
+
+                {/* Reel */}
+                <PortfolioReel />
 
                 {/* Deal grid */}
                 <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

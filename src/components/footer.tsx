@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const navLinks = [
     { label: "Into Begory", href: "/about" },
-    { label: "Tools", href: "/tools" },
+    { label: "Deal Tools", href: "/tools" },
     { label: "Our Portfolio", href: "/portfolio" },
     { label: "Contact Us", href: "/contact" },
 ];
@@ -63,7 +63,7 @@ export default function Footer() {
         <footer className="w-full bg-sidebar border-t mt-4">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 {/* Main grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
                     {/* Brand + contact */}
                     <div className="lg:col-span-2 flex flex-col gap-4">
                         <div className="flex items-center gap-2">
@@ -96,14 +96,6 @@ export default function Footer() {
                                     info@begorycapital.com
                                 </a>
                             </li>
-                            <li>
-                                <a
-                                    href="tel:+15513328570"
-                                    className="hover:text-primary transition"
-                                >
-                                    551-332-8570
-                                </a>
-                            </li>
                             <li>151 W Passaic St, Rochelle Park, NJ</li>
                         </ul>
                     </div>
@@ -127,7 +119,7 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Social */}
+                    {/* Social 
                     <div className="flex flex-col gap-3">
                         <div className="text-xs font-semibold text-foreground uppercase tracking-widest">
                             Follow Us
@@ -147,7 +139,7 @@ export default function Footer() {
                                 </li>
                             ))}
                         </ul>
-                    </div>
+                    </div>*/}
                 </div>
 
                 {/* Divider */}

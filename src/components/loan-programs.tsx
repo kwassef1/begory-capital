@@ -17,9 +17,9 @@ const programs = [
         title: "Long-term rental loans",
         body: "30-year fixed or ARM loans based primarily on property cash flow — not your W-2.",
         bullets: [
-            "1–20 unit properties",
-            "DSCR-based underwriting",
-            "Rate & term or cash-out",
+            "Single-family and 1–4 unit residential",
+            "Multifamily up to 8 units",
+            "DSCR-based underwriting — rate & term or cash-out",
         ],
         bestFor: "Buy-and-hold investors building cash flow.",
     },
@@ -29,8 +29,8 @@ const programs = [
         body: "Transitional financing for properties in lease-up, repositioning, or value-add phases.",
         bullets: [
             "Flexible terms up to 24 months",
-            "Mixed-use & small multifamily",
-            "Cash-out for future projects",
+            "Small commercial & mixed-use (5–10 units)",
+            "Short-term bridge for repositioning or exit",
         ],
         bestFor: "Investors needing time to stabilize then refinance or sell.",
     },
@@ -47,6 +47,9 @@ export default function LoanPrograms() {
                     </h2>
                     <p className="text-sm text-muted-foreground">
                         Whether you&apos;re flipping your first property or scaling a rental portfolio, we structure loans that fit your strategy.
+                    </p>
+                    <p className="text-xs text-muted-foreground italic mt-2">
+                        Note: New York loans are business-purpose only.
                     </p>
                 </div>
 

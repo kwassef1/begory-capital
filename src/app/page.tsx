@@ -6,7 +6,6 @@ import HowItWorks from "@/components/how-it-works";
 import LoanPrograms from "@/components/loan-programs";
 import WhyBegory from "@/components/why-begory";
 import CTAStrip from "@/components/cta-strip";
-import CalculatorTeaser from "@/components/calculator-teaser";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
@@ -37,7 +36,6 @@ export default function Home() {
                 <HowItWorks />
                 <LoanPrograms />
                 <WhyBegory />
-                <CalculatorTeaser />
                 <CTAStrip />
             </main>
             <Footer />

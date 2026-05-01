@@ -1,15 +1,15 @@
+import Link from "next/link";
 import SplitLayout from "@/components/split";
-import DSCRSample from "@/components/dscr-sample";
 import Metric from "@/components/metrics";
 import Badge from "@/components/badge";
 import { Button } from "@/components/ui/button";
-import Card from "@/components/card";
 import SmoothScrollLink from "@/components/smooth-scroll-link";
 
 export default function Hero() {
     return (
         <SplitLayout
             ratio="60-40"
+            align="start"
             left={
                 <div className="flex-1 w-full max-w-lg mx-auto">
                     <Badge>Fast funding for real estate investors</Badge>
@@ -23,7 +23,7 @@ export default function Hero() {
 
                     <p className="mt-4 text-gray-600 max-w-lg">
                         Begory Capital provides simple, asset-based lending for
-                        investors in NY, NJ and beyond. Fix &amp; flip, rental,
+                        investors in NY, NJ, PA, and FL. Fix &amp; flip, rental,
                         and bridge loans designed around real-world deals—not
                         red tape.
                     </p>
@@ -49,29 +49,84 @@ export default function Hero() {
                         plan, and your experience.
                     </p>
 
-                    <div className="flex flex-wrap gap-6 mt-8">
+                    <div className="grid grid-cols-2 gap-6 mt-8">
                         <Metric
-                            label="Experience"
-                            value="10+ yrs"
-                            subtitle="Real estate & lending"
-                        />
-                        <Metric
-                            label="Loan sizes"
-                            value="$150k–$5M"
-                            subtitle="Investor-focused"
+                            label="Deal types"
+                            value="Fix & Flip · DSCR"
+                            subtitle="Short-term rehab and buy-and-hold"
                         />
                         <Metric
                             label="Property types"
-                            value="1–20 units"
-                            subtitle="SFR, 2–4, mixed-use"
+                            value="Residential + mixed-use"
+                            subtitle="Single-family, 1–4 units, and multifamily up to 8 units"
                         />
                     </div>
                 </div>
             }
             right={
-                <Card variant="default" className="my-auto p-6">
-                    <DSCRSample />
-                </Card>
+                <div className="w-full flex flex-col gap-4">
+                    <Badge>Run the numbers</Badge>
+                    {(
+                        [
+                            {
+                                badge: "FIX & FLIP",
+                                title: "Flip profit & ROI calculator",
+                                description:
+                                    "Estimate your total project cost, profit margin, and return on investment before you make an offer.",
+                                outputs: [
+                                    "Total project cost",
+                                    "Net profit",
+                                    "ROI %",
+                                    "Cost as % of ARV",
+                                ],
+                                href: "/tools#flip-calculator",
+                            },
+                            {
+                                badge: "DSCR RENTAL",
+                                title: "Rental cash flow calculator",
+                                description:
+                                    "Model monthly cash flow, cap rate, and cash-on-cash return for any buy-and-hold or refinance scenario.",
+                                outputs: [
+                                    "Monthly cash flow",
+                                    "Cap rate",
+                                    "Cash-on-cash return",
+                                ],
+                                href: "/tools#rental-calculator",
+                            },
+                        ] as const
+                    ).map(({ badge, title, description, outputs, href }) => (
+                        <Link
+                            key={badge}
+                            href={href}
+                            className="group rounded-2xl border border-border bg-card p-5 flex flex-col gap-3 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-md hover:border-primary/30"
+                        >
+                            <div className="flex items-start justify-between gap-2">
+                                <span className="text-xs font-semibold tracking-widest text-primary uppercase">
+                                    {badge}
+                                </span>
+                                <span className="text-primary transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                                    ↗
+                                </span>
+                            </div>
+                            <div className="text-sm font-semibold text-foreground leading-snug">
+                                {title}
+                            </div>
+                            <p className="text-xs text-muted-foreground leading-relaxed">
+                                {description}
+                            </p>
+                            <div className="flex flex-wrap gap-1.5">
+                                {outputs.map((o) => (
+                                    <span
+                                        key={o}
+                                        className="px-2 py-0.5 rounded-full bg-foreground/5 text-xs text-muted-foreground border border-border"
+                                    >
+                                        {o}
+                                    </span>
+                                ))}
+                            </div>
+                        </Link>
+                    ))}
+                </div>
             }
         />
     );
