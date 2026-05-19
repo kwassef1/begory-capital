@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         template: "%s | Begory Capital",
     },
     description:
-        "Begory Capital offers fast, flexible private loans for real estate investors in New York and New Jersey — fix-and-flip, DSCR, and bridge financing.",
+        "Begory Capital offers fast, flexible private loans for real estate investors — fix-and-flip, DSCR, and bridge financing.",
     metadataBase: new URL("https://begorycapital.com"),
     openGraph: {
         siteName: "Begory Capital",

@@ -14,31 +14,29 @@ export const metadata: Metadata = {
 
 const team = [
     {
-        name: "Team Member Name",
-        title: "Founder & Managing Director",
-        bio: "Replace with your actual bio. Focus on years of experience, markets covered, volume of deals closed, and what makes you different as a lender and real estate professional.",
-        expertise: ["Fix & flip lending", "DSCR underwriting", "Acquisitions", "NY & NJ markets"],
+        name: "Mena Gerges",
+        title: "Managing Director",
+        bio: "In the real estate market since 2007. Knowledge in every aspect of the market, from wholesaling to long-term rentals. Mena has a deep understanding of how real estate investors think and operate, and that perspective shapes how we underwrite deals and communicate with borrowers.",
+        expertise: ["Fix & flip lending", "DSCR underwriting", "Acquisitions"],
     },
     {
-        name: "Team Member Name",
-        title: "Head of Underwriting",
-        bio: "Replace with actual bio. Highlight underwriting background, asset types covered, and how this person evaluates deals — what they look for, what they've seen.",
-        expertise: ["Loan structuring", "Property valuation", "Risk assessment", "Residential & mixed-use"],
-    },
-    {
-        name: "Team Member Name",
-        title: "Client Relations & Originations",
-        bio: "Replace with actual bio. Great to emphasize borrower relationships, communication style, and how this person helps investors navigate from term sheet to close.",
-        expertise: ["Borrower relationships", "Loan origination", "Deal sourcing", "Broker partnerships"],
+        name: "Bola Samuel",
+        title: "VP of Investments & Operations",
+        bio: "Experience in investment banking since 2015, assisting investors with acquisitions, dispositions, and capital raising. Bola has a strong background in financial analysis and deal structuring, and works closely with borrowers to find the best loan program for their needs.",
+        expertise: [
+            "Loan structuring",
+            "Property valuation",
+            "Risk assessment",
+        ],
     },
 ];
 
 const partners = [
     "Real estate attorneys",
     "Title companies",
-    "Appraisers & inspectors",
-    "Licensed brokers (NY & NJ)",
-    "Construction professionals",
+    "Appraisers & Inspectors",
+    "Licensed brokers",
+    "General Contractors",
 ];
 
 export default function TeamPage() {
@@ -46,7 +44,6 @@ export default function TeamPage() {
         <div className="min-h-screen bg-gray-50 flex flex-col">
             <Header />
             <main className="flex-1">
-
                 {/* Hero */}
                 <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                     <div className="max-w-2xl mx-auto flex flex-col gap-5 items-center text-center">
@@ -55,27 +52,37 @@ export default function TeamPage() {
                             People who understand real estate, not just lending.
                         </h1>
                         <p className="text-base text-muted-foreground">
-                            Every person on the Begory Capital team has hands-on experience in real estate
-                            — not just finance. That background shapes how we evaluate deals and communicate
-                            with borrowers.
+                            Every person on the Begory Capital team has hands-on
+                            experience in real estate — not just finance. That
+                            background shapes how we evaluate deals and
+                            communicate with borrowers.
                         </p>
                     </div>
                 </section>
 
                 {/* Team cards */}
                 <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
                         {team.map(({ name, title, bio, expertise }) => (
-                            <Card key={name + title} className="p-6 flex flex-col gap-4">
+                            <Card
+                                key={name + title}
+                                className="p-6 flex flex-col gap-4"
+                            >
                                 {/* Avatar placeholder */}
                                 <div className="w-16 h-16 rounded-full bg-foreground/8 flex items-center justify-center text-2xl font-semibold text-foreground">
                                     {name.charAt(0)}
                                 </div>
                                 <div>
-                                    <div className="text-base font-semibold text-foreground">{name}</div>
-                                    <div className="text-sm text-primary font-medium">{title}</div>
+                                    <div className="text-base font-semibold text-foreground">
+                                        {name}
+                                    </div>
+                                    <div className="text-sm text-primary font-medium">
+                                        {title}
+                                    </div>
                                 </div>
-                                <p className="text-sm text-muted-foreground">{bio}</p>
+                                <p className="text-sm text-muted-foreground">
+                                    {bio}
+                                </p>
                                 <div className="mt-auto flex flex-col gap-2">
                                     <div className="text-xs font-semibold text-foreground uppercase tracking-wider">
                                         Expertise
@@ -98,15 +105,22 @@ export default function TeamPage() {
 
                 {/* Network */}
                 <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                    <Card variant="dark" className="rounded-3xl p-8 flex flex-col gap-6">
+                    <Card
+                        variant="dark"
+                        className="rounded-3xl p-8 flex flex-col gap-6"
+                    >
                         <div className="flex flex-col gap-1.5">
-                            <div className="text-xs uppercase tracking-wider text-gray-400">OUR NETWORK</div>
+                            <div className="text-xs uppercase tracking-wider text-gray-400">
+                                OUR NETWORK
+                            </div>
                             <h2 className="text-xl font-semibold text-gray-100">
-                                Beyond our team, we work with a tight network of professionals.
+                                Beyond our team, we work with a tight network of
+                                professionals.
                             </h2>
                             <p className="text-sm text-gray-400">
-                                When you borrow with Begory Capital, you get access to relationships we&apos;ve
-                                built over years in the NY and NJ markets.
+                                When you borrow with Begory Capital, you get
+                                access to relationships we&apos;ve built over
+                                years across the nation.
                             </p>
                         </div>
                         <div className="flex flex-wrap gap-2">
@@ -130,20 +144,19 @@ export default function TeamPage() {
                                 Want to talk to someone directly?
                             </div>
                             <p className="text-sm text-muted-foreground mt-1">
-                                Call or email us — you&apos;ll reach a real person, not a call center.
+                                Send us a deal summary and you&apos;ll reach a
+                                real person, not a call center.
                             </p>
                         </div>
                         <div className="flex flex-wrap gap-3 shrink-0">
-                            <Button variant="outline" size="sm" asChild>
-                                <a href="mailto:info@begorycapital.com">Email us</a>
-                            </Button>
                             <Button variant="primary" size="sm" asChild>
-                                <SmoothScrollLink href="/contact">Send a deal summary</SmoothScrollLink>
+                                <SmoothScrollLink href="/contact">
+                                    Send a deal summary
+                                </SmoothScrollLink>
                             </Button>
                         </div>
                     </div>
                 </section>
-
             </main>
             <Footer />
         </div>

@@ -46,10 +46,9 @@ export default function LoanPrograms() {
                         Funding designed for real estate investors.
                     </h2>
                     <p className="text-sm text-muted-foreground">
-                        Whether you&apos;re flipping your first property or scaling a rental portfolio, we structure loans that fit your strategy.
-                    </p>
-                    <p className="text-xs text-muted-foreground italic mt-2">
-                        Note: New York loans are business-purpose only.
+                        Whether you&apos;re flipping your first property or
+                        scaling a rental portfolio, we structure loans that fit
+                        your strategy.
                     </p>
                 </div>
 
@@ -62,18 +61,29 @@ export default function LoanPrograms() {
                             <div className="text-xs uppercase tracking-wider text-muted-foreground">
                                 {tag}
                             </div>
-                            <h3 className="text-base font-semibold text-foreground">{title}</h3>
-                            <p className="text-sm text-muted-foreground">{body}</p>
+                            <h3 className="text-base font-semibold text-foreground">
+                                {title}
+                            </h3>
+                            <p className="text-sm text-muted-foreground">
+                                {body}
+                            </p>
                             <ul className="mt-1 list-disc pl-4 flex flex-col gap-0.5">
                                 {bullets.map((b) => (
-                                    <li key={b} className="text-sm text-muted-foreground">
+                                    <li
+                                        key={b}
+                                        className="text-sm text-muted-foreground"
+                                    >
                                         {b}
                                     </li>
                                 ))}
                             </ul>
                             <div className="mt-2">
-                                <div className="text-xs text-muted-foreground">Best for</div>
-                                <div className="text-base font-semibold text-foreground">{bestFor}</div>
+                                <div className="text-xs text-muted-foreground">
+                                    Best for
+                                </div>
+                                <div className="text-base font-semibold text-foreground">
+                                    {bestFor}
+                                </div>
                             </div>
                         </article>
                     ))}

@@ -57,7 +57,7 @@ export default function Hero() {
                         />
                         <Metric
                             label="Property types"
-                            value="Residential + mixed-use"
+                            value="Residential + Mixed-use"
                             subtitle="Single-family, 1–4 units, and multifamily up to 8 units"
                         />
                     </div>

@@ -1,8 +1,8 @@
 const pills = [
-    "Fix & flip investors",
-    "Buy & hold landlords",
-    "Small developers",
-    "Agents & loan officers",
+    "Fix & Flip investors",
+    "Buy & Hold landlords",
+    "Developers",
+    "Agents & Loan officers",
 ];
 
 export default function Trusted() {

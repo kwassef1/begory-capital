@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const NAV_LINKS = [
     { label: "Into Begory", href: "/about" },
-    { label: "Our Portfolio", href: "/portfolio" },
+    { label: "Our Team", href: "/team" },
     { label: "Calculators", href: "/tools" },
 ] as const;
 
