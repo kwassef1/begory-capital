@@ -9,20 +9,20 @@ import CTAStrip from "@/components/cta-strip";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-    title: "Private Real Estate Loans in NY & NJ — Fix-Flip, DSCR, Bridge",
+    title: "Private Real Estate Loans — Fix-Flip, DSCR, Bridge",
     description:
-        "Begory Capital funds fix-and-flip, DSCR rental, and bridge loans for real estate investors in New York and New Jersey. Fast approvals, competitive rates.",
+        "Begory Capital funds fix-and-flip, DSCR rental, and bridge loans for real estate investors. Fast approvals, competitive rates.",
     openGraph: {
-        title: "Begory Capital | Private Real Estate Lending — NY & NJ",
+        title: "Begory Capital | Private Real Estate Lending",
         description:
-            "Fast, flexible private loans for real estate investors. Fix-and-flip, DSCR, and bridge financing in New York and New Jersey.",
+            "Fast, flexible private loans for real estate investors. Fix-and-flip, DSCR, and bridge financing.",
         url: "https://begorycapital.com",
         type: "website",
     },
     twitter: {
-        title: "Begory Capital | Private Real Estate Lending — NY & NJ",
+        title: "Begory Capital | Private Real Estate Lending",
         description:
-            "Fast, flexible private loans for real estate investors. Fix-and-flip, DSCR, and bridge financing in New York and New Jersey.",
+            "Fast, flexible private loans for real estate investors. Fix-and-flip, DSCR, and bridge financing.",
     },
 };
 

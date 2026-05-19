@@ -149,10 +149,10 @@ export default function Footer() {
                 <div className="pt-6 flex flex-col sm:flex-row justify-between gap-4 text-xs text-muted-foreground">
                     <p>© {year} Begory Capital LLC. All rights reserved.</p>
                     <p className="sm:text-right max-w-md">
-                        NMLS #0000000. Loans made or arranged pursuant to
-                        applicable state law. This is not an offer to lend. All
-                        loans subject to borrower and property qualification.
-                        Rates and terms subject to change without notice.
+                        Loans made or arranged pursuant to applicable state law.
+                        This is not an offer to lend. All loans subject to
+                        borrower and property qualification. Rates and terms
+                        subject to change without notice.
                     </p>
                 </div>
             </div>

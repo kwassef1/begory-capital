@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 export const metadata: Metadata = {
     title: "About Begory Capital — Private Real Estate Lending",
     description:
-        "Begory Capital is a private real estate lender serving investors in New York and New Jersey. Learn about our story, mission, and lending philosophy.",
+        "Begory Capital is a private real estate lender serving investors nationwide. Learn about our story, mission, and lending philosophy.",
 };
 
 const values = [
@@ -112,11 +112,11 @@ export default function AboutPage() {
                                 </p>
                                 <p className="text-sm text-muted-foreground">
                                     Today, we fund fix-and-flip, bridge, and
-                                    DSCR loans for investors across New York,
-                                    New Jersey, and surrounding markets.
-                                    We&apos;re a relationship-first shop, and
-                                    most of our business comes from repeat
-                                    borrowers and the people they refer.
+                                    DSCR loans for investors across the nation
+                                    and surrounding markets. We&apos;re a
+                                    relationship-first shop, and most of our
+                                    business comes from repeat borrowers and the
+                                    people they refer.
                                 </p>
                             </div>
                         }
@@ -206,16 +206,15 @@ export default function AboutPage() {
                             <p className="text-sm text-gray-400">
                                 When you borrow with Begory Capital, you get
                                 access to relationships we&apos;ve built over
-                                years in the NY and NJ markets.
+                                years in the national market.
                             </p>
                         </div>
                         <div className="flex flex-wrap gap-2">
                             {[
                                 "Real estate attorneys",
                                 "Title companies",
-                                "Appraisers & inspectors",
-                                "Licensed brokers (NY & NJ)",
-                                "Construction professionals",
+                                "Appraisers & Inspectors",
+                                "General Contractors",
                             ].map((p) => (
                                 <span
                                     key={p}

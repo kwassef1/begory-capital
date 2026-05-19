@@ -53,7 +53,10 @@ function Left() {
 
 function Right() {
     return (
-        <Card variant="dark" className="relative overflow-hidden rounded-3xl p-6 flex flex-col gap-5">
+        <Card
+            variant="dark"
+            className="relative overflow-hidden rounded-3xl p-6 flex flex-col gap-5"
+        >
             {/* Decorative oversized background quote mark */}
             <span
                 aria-hidden
@@ -87,10 +90,10 @@ function Right() {
                     </div>
                     <div>
                         <div className="text-sm font-semibold text-white">
-                            Realtor Name Here
+                            John Smith
                         </div>
                         <div className="text-xs text-gray-400">
-                            NY &amp; NJ Real Estate Agent
+                            Real Estate Agent
                         </div>
                     </div>
                 </div>

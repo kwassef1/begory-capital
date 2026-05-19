@@ -6,7 +6,7 @@ import RentalCalculator from "@/components/rental-calculator";
 export const metadata: Metadata = {
     title: "Investor Calculators — Fix & Flip and DSCR Rental | Begory Capital",
     description:
-        "Run the numbers on your next deal. Begory Capital's free calculators estimate flip profit, ROI, cash flow, cap rate, and cash-on-cash return for NY & NJ investors.",
+        "Run the numbers on your next deal. Begory Capital's free calculators estimate flip profit, ROI, cash flow, cap rate, and cash-on-cash return for investors.",
 };
 
 export default function ToolsPage() {

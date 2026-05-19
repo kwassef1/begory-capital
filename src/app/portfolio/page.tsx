@@ -10,7 +10,7 @@ import PortfolioReel from "@/components/portfolio-reel";
 export const metadata: Metadata = {
     title: "Our Portfolio — Begory Capital",
     description:
-        "See examples of deals funded by Begory Capital — fix-and-flip, bridge, and DSCR loans across New York and New Jersey.",
+        "See examples of deals funded by Begory Capital — fix-and-flip, bridge, and DSCR loans across the nation.",
 };
 
 const deals = [
@@ -110,7 +110,6 @@ const deals = [
 const stats = [
     { value: "$50M+", label: "Capital deployed" },
     { value: "100+", label: "Deals funded" },
-    { value: "NY & NJ", label: "Primary markets" },
     { value: "7–21 days", label: "Avg. closing window" },
 ];
 
@@ -144,7 +143,7 @@ export default function PortfolioPage() {
 
                 {/* Stats */}
                 <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 max-w-2xl mx-auto">
                         {stats.map(({ value, label }) => (
                             <Card
                                 key={label}

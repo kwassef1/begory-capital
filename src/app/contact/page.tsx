@@ -31,7 +31,7 @@ const faqs = [
     },
     {
         question: "What markets do you lend in?",
-        answer: "Our primary markets are New York and New Jersey. We also consider deals in surrounding states on a case-by-case basis. Reach out and tell us about the property — we'll let you know if we can help.",
+        answer: "We lend across the nation. Reach out and tell us about the property — we'll let you know if we can help.",
     },
     {
         question: "Do you work with mortgage brokers and loan officers?",
@@ -72,7 +72,11 @@ export default function ContactPage() {
                         bare
                         ratio="50-50"
                         align="stretch"
-                        left={<Suspense><ContactForm /></Suspense>}
+                        left={
+                            <Suspense>
+                                <ContactForm />
+                            </Suspense>
+                        }
                         right={
                             <div className="flex flex-col gap-6 h-full">
                                 <div className="flex flex-col gap-1.5">
@@ -81,7 +85,9 @@ export default function ContactPage() {
                                         Frequently asked questions.
                                     </h2>
                                     <p className="text-sm text-muted-foreground">
-                                        Deals are unique, but these are some of the most common questions we hear from investors and partners.
+                                        Deals are unique, but these are some of
+                                        the most common questions we hear from
+                                        investors and partners.
                                     </p>
                                 </div>
                                 <div className="flex flex-col gap-3">
@@ -91,10 +97,23 @@ export default function ContactPage() {
                                             className="group rounded-2xl border border-border bg-card overflow-hidden"
                                         >
                                             <summary className="flex items-center justify-between px-5 py-4 cursor-pointer list-none select-none">
-                                                <span className="text-sm font-medium text-foreground">{question}</span>
+                                                <span className="text-sm font-medium text-foreground">
+                                                    {question}
+                                                </span>
                                                 <span className="ml-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-45">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M8 3v10M3 8h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                                                    <svg
+                                                        width="16"
+                                                        height="16"
+                                                        viewBox="0 0 16 16"
+                                                        fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                        <path
+                                                            d="M8 3v10M3 8h10"
+                                                            stroke="currentColor"
+                                                            strokeWidth="1.5"
+                                                            strokeLinecap="round"
+                                                        />
                                                     </svg>
                                                 </span>
                                             </summary>
