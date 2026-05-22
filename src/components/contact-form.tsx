@@ -52,8 +52,11 @@ const selectClass =
 const textareaClass =
     "flex w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring resize-none";
 
+type Status = "idle" | "loading" | "success" | "error";
+
 export default function ContactForm() {
     const [details, setDetails] = useState("");
+    const [status, setStatus] = useState<Status>("idle");
     const params = useSearchParams();
 
     useEffect(() => {
@@ -62,8 +65,53 @@ export default function ContactForm() {
         }
     }, [params]);
 
+    async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
+        e.preventDefault();
+        setStatus("loading");
+
+        const fd = new FormData(e.currentTarget);
+
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: fd.get("name"),
+                    email: fd.get("email"),
+                    phone: fd.get("phone"),
+                    propertyType: fd.get("propertyType"),
+                    purpose: fd.get("purpose"),
+                    timeline: fd.get("timeline"),
+                    details,
+                }),
+            });
+
+            if (!res.ok) throw new Error();
+            setStatus("success");
+        } catch {
+            setStatus("error");
+        }
+    }
+
+    if (status === "success") {
+        return (
+            <div className="rounded-2xl border border-border bg-card p-6 shadow-sm flex flex-col gap-3 h-full items-center justify-center text-center">
+                <div className="text-2xl">✓</div>
+                <div className="text-base font-semibold text-foreground">
+                    Message sent
+                </div>
+                <p className="text-sm text-muted-foreground">
+                    Thanks — we&apos;ll be in touch shortly.
+                </p>
+            </div>
+        );
+    }
+
     return (
-        <form className="rounded-2xl border border-border bg-card p-6 shadow-sm flex flex-col gap-4 h-full">
+        <form
+            onSubmit={handleSubmit}
+            className="rounded-2xl border border-border bg-card p-6 shadow-sm flex flex-col gap-4 h-full"
+        >
             <div className="flex flex-col gap-1">
                 <h2 className="text-xl font-semibold text-foreground">
                     Submit a deal summary
@@ -85,9 +133,11 @@ export default function ContactForm() {
                     </label>
                     <Input
                         id="cf-name"
+                        name="name"
                         type="text"
                         placeholder="Your name"
                         autoComplete="name"
+                        required
                     />
                 </div>
                 <div className="flex flex-col gap-1">
@@ -99,9 +149,11 @@ export default function ContactForm() {
                     </label>
                     <Input
                         id="cf-email"
+                        name="email"
                         type="email"
                         placeholder="you@example.com"
                         autoComplete="email"
+                        required
                     />
                 </div>
                 <div className="flex flex-col gap-1 sm:col-span-2">
@@ -113,6 +165,7 @@ export default function ContactForm() {
                     </label>
                     <Input
                         id="cf-phone"
+                        name="phone"
                         type="tel"
                         placeholder="Best number to reach you"
                         autoComplete="tel"
@@ -129,7 +182,11 @@ export default function ContactForm() {
                     >
                         Property type
                     </label>
-                    <select id="cf-property-type" className={selectClass}>
+                    <select
+                        id="cf-property-type"
+                        name="propertyType"
+                        className={selectClass}
+                    >
                         <option>Single-family residence</option>
                         <option>2–4 unit</option>
                         <option>Multifamily (5+ units)</option>
@@ -144,7 +201,11 @@ export default function ContactForm() {
                     >
                         Loan purpose
                     </label>
-                    <select id="cf-purpose" className={selectClass}>
+                    <select
+                        id="cf-purpose"
+                        name="purpose"
+                        className={selectClass}
+                    >
                         <option>Purchase</option>
                         <option>Refinance</option>
                         <option>Cash-out refinance</option>
@@ -159,7 +220,11 @@ export default function ContactForm() {
                     >
                         Desired closing timeline
                     </label>
-                    <select id="cf-timeline" className={selectClass}>
+                    <select
+                        id="cf-timeline"
+                        name="timeline"
+                        className={selectClass}
+                    >
                         <option>7–10 days</option>
                         <option>2–3 weeks</option>
                         <option>30+ days</option>
@@ -186,8 +251,20 @@ export default function ContactForm() {
                 />
             </div>
 
-            <Button variant="primary" type="submit" className="w-full">
-                Submit deal summary
+            {status === "error" && (
+                <p className="text-xs text-red-500">
+                    Something went wrong — please try again or email us
+                    directly.
+                </p>
+            )}
+
+            <Button
+                variant="primary"
+                type="submit"
+                className="w-full"
+                disabled={status === "loading"}
+            >
+                {status === "loading" ? "Sending…" : "Submit deal summary"}
             </Button>
 
             <p className="text-xs text-muted-foreground">

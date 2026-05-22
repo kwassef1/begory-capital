@@ -15,9 +15,6 @@ export default function Contact() {
                                 Use this form to send a quick summary of your deal. A member of our team will follow up with questions and options.
                             </p>
                         </div>
-                        <div className="flex flex-col gap-1.5 text-sm">
-                            <div><span className="font-medium text-foreground">Email:</span> <a href="mailto:info@begorycapital.com" className="text-muted-foreground hover:text-primary transition">info@begorycapital.com</a></div>
-                        </div>
                         <div className="text-sm text-muted-foreground">
                             <div className="font-medium text-foreground">Office</div>
                             <div>151 W Passaic St, 2nd Floor</div>

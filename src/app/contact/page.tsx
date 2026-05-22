@@ -52,17 +52,9 @@ export default function ContactPage() {
                             Whether you&apos;re borrowing or investing —
                             let&apos;s talk.
                         </h1>
-                        <div className="flex flex-wrap gap-4 justify-center text-sm">
-                            <a
-                                href="mailto:info@begorycapital.com"
-                                className="text-muted-foreground hover:text-primary transition font-medium"
-                            >
-                                ✉ info@begorycapital.com
-                            </a>
-                            <span className="text-muted-foreground">
-                                📍 151 W Passaic St, Rochelle Park, NJ
-                            </span>
-                        </div>
+                        <p className="text-sm text-muted-foreground">
+                            📍 151 W Passaic St, Rochelle Park, NJ
+                        </p>
                     </div>
                 </section>
 
