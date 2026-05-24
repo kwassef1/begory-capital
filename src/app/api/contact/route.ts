@@ -3,11 +3,12 @@ import nodemailer from "nodemailer";
 import { z } from "zod";
 
 const schema = z.object({
-    firstName: z.string().min(1, "First name is required").max(50),
-    lastName: z.string().min(1, "Last name is required").max(50),
+    firstName: z.string().trim().min(1, "First name is required").max(50),
+    lastName: z.string().trim().min(1, "Last name is required").max(50),
     email: z.string().email("Invalid email address").max(200),
     phone: z
         .string()
+        .trim()
         .min(7, "Phone number is too short")
         .max(20, "Phone number is too long")
         .refine((v) => /^\+?[\d\s\-().]+$/.test(v), "Invalid phone number"),
@@ -31,7 +32,7 @@ const schema = z.object({
         "30+ days",
         "Just exploring options",
     ]),
-    details: z.string().min(1, "Please tell us about the deal").max(5000),
+    details: z.string().trim().min(1, "Please tell us about the deal").max(5000),
 });
 
 // In-memory rate limiter — 5 submissions per IP per 15 minutes.
@@ -40,9 +41,24 @@ const schema = z.object({
 const ipLog = new Map<string, number[]>();
 const WINDOW_MS = 15 * 60 * 1000;
 const LIMIT = 5;
+const MAX_IPS = 10_000;
 
 function isRateLimited(ip: string): boolean {
     const now = Date.now();
+
+    // Evict IPs whose entire history has expired to bound map growth.
+    for (const [key, timestamps] of ipLog) {
+        if (timestamps.every((t) => now - t >= WINDOW_MS)) {
+            ipLog.delete(key);
+        }
+    }
+
+    // Hard cap as a secondary guard against a flood of unique IPs.
+    if (ipLog.size >= MAX_IPS) {
+        const oldest = ipLog.keys().next().value;
+        if (oldest) ipLog.delete(oldest);
+    }
+
     const hits = (ipLog.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
     if (hits.length >= LIMIT) return true;
     ipLog.set(ip, [...hits, now]);

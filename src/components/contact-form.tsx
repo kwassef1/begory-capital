@@ -181,7 +181,7 @@ export default function ContactForm() {
             </div>
 
             {/* Name row */}
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="flex flex-col gap-1">
                     <label
                         className="text-xs text-muted-foreground"

@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
     async redirects() {
         return [
             {
+                // Temporary — remove when portfolio page is ready to publish
                 source: "/portfolio",
                 destination: "/",
                 permanent: false,
