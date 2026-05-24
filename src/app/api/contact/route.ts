@@ -3,8 +3,8 @@ import nodemailer from "nodemailer";
 import { z } from "zod";
 
 const schema = z.object({
-    firstName: z.string().trim().min(1, "First name is required").max(50),
-    lastName: z.string().trim().min(1, "Last name is required").max(50),
+    firstName: z.string().trim().min(1, "First name is required").max(50).refine((v) => !/[\r\n]/.test(v), "Invalid characters in first name"),
+    lastName: z.string().trim().min(1, "Last name is required").max(50).refine((v) => !/[\r\n]/.test(v), "Invalid characters in last name"),
     email: z.string().email("Invalid email address").max(200),
     phone: z
         .string()
