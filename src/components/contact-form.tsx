@@ -341,6 +341,7 @@ export default function ContactForm() {
                     onChange={(e) => setDetails(e.target.value)}
                     placeholder="Address, purchase price, rehab budget, estimated value, and anything else we should know."
                     className={textareaClass(!!fieldErrors.details)}
+                    aria-invalid={!!fieldErrors.details}
                 />
                 <FieldError message={fieldErrors.details} />
             </div>
