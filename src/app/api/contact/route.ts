@@ -61,13 +61,13 @@ export async function POST(req: Request) {
         );
     }
 
-    // Rate limit by IP
+    // Rate limit by IP — skip if IP cannot be determined to avoid global lockout
     const ip =
-        req.headers.get("x-forwarded-for")?.split(",")[0].trim() ??
-        req.headers.get("x-real-ip") ??
-        "unknown";
+        req.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
+        req.headers.get("x-real-ip")?.trim() ||
+        null;
 
-    if (isRateLimited(ip)) {
+    if (ip && isRateLimited(ip)) {
         return NextResponse.json(
             { error: "Too many requests. Please try again later." },
             { status: 429 }

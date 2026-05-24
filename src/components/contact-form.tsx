@@ -78,7 +78,7 @@ export default function ContactForm() {
         }
     }, [params]);
 
-    async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
+    async function handleSubmit(e: { preventDefault(): void; currentTarget: HTMLFormElement }) {
         e.preventDefault();
         setStatus("loading");
 
@@ -115,6 +115,7 @@ export default function ContactForm() {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
+                    _honeypot: String(fd.get("_honeypot") ?? ""),
                     firstName: fd.get("firstName"),
                     lastName: fd.get("lastName"),
                     email,
@@ -159,6 +160,16 @@ export default function ContactForm() {
             onSubmit={handleSubmit}
             className="rounded-2xl border border-border bg-card p-6 shadow-sm flex flex-col gap-4 h-full"
         >
+            {/* Honeypot — hidden from real users, bots will fill it */}
+            <input
+                type="text"
+                name="_honeypot"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                style={{ position: "absolute", opacity: 0, pointerEvents: "none", height: 0, width: 0 }}
+            />
+
             <div className="flex flex-col gap-1">
                 <h2 className="text-xl font-semibold text-foreground">
                     Submit a deal summary
