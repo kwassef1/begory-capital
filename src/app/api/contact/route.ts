@@ -3,7 +3,6 @@ import nodemailer from "nodemailer";
 import { z } from "zod";
 
 const schema = z.object({
-    _honeypot: z.string().max(0).optional(),
     firstName: z.string().min(1, "First name is required").max(50),
     lastName: z.string().min(1, "Last name is required").max(50),
     email: z.string().email("Invalid email address").max(200),
@@ -81,6 +80,11 @@ export async function POST(req: Request) {
         return NextResponse.json({ error: "Invalid request." }, { status: 400 });
     }
 
+    // Honeypot: check raw body before validation so bots get a silent 200
+    if (typeof body === "object" && body !== null && "_honeypot" in body && (body as Record<string, unknown>)._honeypot) {
+        return NextResponse.json({ ok: true });
+    }
+
     const result = schema.safeParse(body);
     if (!result.success) {
         const fieldErrors: Record<string, string> = {};
@@ -89,11 +93,6 @@ export async function POST(req: Request) {
             if (!fieldErrors[field]) fieldErrors[field] = issue.message;
         }
         return NextResponse.json({ fieldErrors }, { status: 422 });
-    }
-
-    // Honeypot: silently succeed so bots don't know they were blocked
-    if (result.data._honeypot) {
-        return NextResponse.json({ ok: true });
     }
 
     const { firstName, lastName, email, phone, propertyType, purpose, timeline, details } =
