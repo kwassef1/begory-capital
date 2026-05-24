@@ -273,6 +273,7 @@ export default function ContactForm() {
                         id="cf-property-type"
                         name="propertyType"
                         className={selectClass(!!fieldErrors.propertyType)}
+                        aria-invalid={!!fieldErrors.propertyType}
                     >
                         <option>Single-family residence</option>
                         <option>2–4 unit</option>
@@ -293,6 +294,7 @@ export default function ContactForm() {
                         id="cf-purpose"
                         name="purpose"
                         className={selectClass(!!fieldErrors.purpose)}
+                        aria-invalid={!!fieldErrors.purpose}
                     >
                         <option>Purchase</option>
                         <option>Refinance</option>
@@ -313,6 +315,7 @@ export default function ContactForm() {
                         id="cf-timeline"
                         name="timeline"
                         className={selectClass(!!fieldErrors.timeline)}
+                        aria-invalid={!!fieldErrors.timeline}
                     >
                         <option>7–10 days</option>
                         <option>2–3 weeks</option>
