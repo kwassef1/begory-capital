@@ -3,9 +3,14 @@ import nodemailer from "nodemailer";
 import { z } from "zod";
 
 const schema = z.object({
-    name: z.string().min(1, "Name is required").max(100),
-    email: z.string().email("Invalid email").max(200),
-    phone: z.string().max(30).optional(),
+    firstName: z.string().min(1, "First name is required").max(50),
+    lastName: z.string().min(1, "Last name is required").max(50),
+    email: z.email("Invalid email address").max(200),
+    phone: z
+        .string()
+        .min(7, "Phone number is too short")
+        .max(20, "Phone number is too long")
+        .refine((v) => /^\+?[\d\s\-().]+$/.test(v), "Invalid phone number"),
     propertyType: z.enum([
         "Single-family residence",
         "2–4 unit",
@@ -26,7 +31,7 @@ const schema = z.object({
         "30+ days",
         "Just exploring options",
     ]),
-    details: z.string().max(5000).optional(),
+    details: z.string().min(1, "Please tell us about the deal").max(5000),
 });
 
 export async function POST(req: Request) {
@@ -39,14 +44,17 @@ export async function POST(req: Request) {
 
     const result = schema.safeParse(body);
     if (!result.success) {
-        return NextResponse.json(
-            { error: result.error.issues[0].message },
-            { status: 422 }
-        );
+        const fieldErrors: Record<string, string> = {};
+        for (const issue of result.error.issues) {
+            const field = String(issue.path[0] ?? "form");
+            if (!fieldErrors[field]) fieldErrors[field] = issue.message;
+        }
+        return NextResponse.json({ fieldErrors }, { status: 422 });
     }
 
-    const { name, email, phone, propertyType, purpose, timeline, details } =
+    const { firstName, lastName, email, phone, propertyType, purpose, timeline, details } =
         result.data;
+    const name = `${firstName} ${lastName}`;
 
     try {
         const transporter = nodemailer.createTransport({
