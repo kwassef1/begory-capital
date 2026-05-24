@@ -3,9 +3,10 @@ import nodemailer from "nodemailer";
 import { z } from "zod";
 
 const schema = z.object({
+    _honeypot: z.string().max(0).optional(),
     firstName: z.string().min(1, "First name is required").max(50),
     lastName: z.string().min(1, "Last name is required").max(50),
-    email: z.email("Invalid email address").max(200),
+    email: z.string().email("Invalid email address").max(200),
     phone: z
         .string()
         .min(7, "Phone number is too short")
@@ -34,7 +35,45 @@ const schema = z.object({
     details: z.string().min(1, "Please tell us about the deal").max(5000),
 });
 
+// In-memory rate limiter — 5 submissions per IP per 15 minutes.
+// Note: resets on server restart and does not share state across
+// multiple serverless instances. Sufficient for basic abuse prevention.
+const ipLog = new Map<string, number[]>();
+const WINDOW_MS = 15 * 60 * 1000;
+const LIMIT = 5;
+
+function isRateLimited(ip: string): boolean {
+    const now = Date.now();
+    const hits = (ipLog.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
+    if (hits.length >= LIMIT) return true;
+    ipLog.set(ip, [...hits, now]);
+    return false;
+}
+
 export async function POST(req: Request) {
+    // Fail fast if email credentials are not configured
+    const { ZOHO_USER, ZOHO_PASS } = process.env;
+    if (!ZOHO_USER || !ZOHO_PASS) {
+        console.error("ZOHO_USER or ZOHO_PASS is not set");
+        return NextResponse.json(
+            { error: "Email service is not configured." },
+            { status: 500 }
+        );
+    }
+
+    // Rate limit by IP
+    const ip =
+        req.headers.get("x-forwarded-for")?.split(",")[0].trim() ??
+        req.headers.get("x-real-ip") ??
+        "unknown";
+
+    if (isRateLimited(ip)) {
+        return NextResponse.json(
+            { error: "Too many requests. Please try again later." },
+            { status: 429 }
+        );
+    }
+
     let body: unknown;
     try {
         body = await req.json();
@@ -52,6 +91,11 @@ export async function POST(req: Request) {
         return NextResponse.json({ fieldErrors }, { status: 422 });
     }
 
+    // Honeypot: silently succeed so bots don't know they were blocked
+    if (result.data._honeypot) {
+        return NextResponse.json({ ok: true });
+    }
+
     const { firstName, lastName, email, phone, propertyType, purpose, timeline, details } =
         result.data;
     const name = `${firstName} ${lastName}`;
@@ -61,27 +105,24 @@ export async function POST(req: Request) {
             host: "smtp.zoho.com",
             port: 465,
             secure: true,
-            auth: {
-                user: process.env.ZOHO_USER,
-                pass: process.env.ZOHO_PASS,
-            },
+            auth: { user: ZOHO_USER, pass: ZOHO_PASS },
         });
 
         await transporter.sendMail({
-            from: `"Begory Capital" <${process.env.ZOHO_USER}>`,
+            from: `"Begory Capital" <${ZOHO_USER}>`,
             to: "mg@begorycapital.com",
             replyTo: email,
             subject: `New deal inquiry from ${name}`,
             text: [
                 `Name: ${name}`,
                 `Email: ${email}`,
-                `Phone: ${phone || "—"}`,
+                `Phone: ${phone}`,
                 `Property type: ${propertyType}`,
                 `Loan purpose: ${purpose}`,
                 `Timeline: ${timeline}`,
                 ``,
                 `Details:`,
-                details || "—",
+                details,
             ].join("\n"),
         });
 
