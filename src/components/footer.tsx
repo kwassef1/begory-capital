@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const navLinks = [
     { label: "Into Begory", href: "/about" },
+    { label: "Our Team", href: "/team" },
     { label: "Deal Tools", href: "/tools" },
-    { label: "Our Portfolio", href: "/portfolio" },
     { label: "Contact Us", href: "/contact" },
 ];
 
@@ -88,14 +88,6 @@ export default function Footer() {
                             stabilization.
                         </p>
                         <ul className="flex flex-col gap-1.5 text-sm text-muted-foreground">
-                            <li>
-                                <a
-                                    href="mailto:info@begorycapital.com"
-                                    className="hover:text-primary transition"
-                                >
-                                    info@begorycapital.com
-                                </a>
-                            </li>
                             <li>151 W Passaic St, Rochelle Park, NJ</li>
                         </ul>
                     </div>

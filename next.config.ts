@@ -1,8 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
+    reactCompiler: true,
+    async redirects() {
+        return [
+            {
+                // Temporary — remove when portfolio page is ready to publish
+                source: "/portfolio",
+                destination: "/",
+                permanent: false,
+            },
+        ];
+    },
 };
 
 export default nextConfig;
