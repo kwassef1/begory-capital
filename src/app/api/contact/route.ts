@@ -43,22 +43,24 @@ const WINDOW_MS = 15 * 60 * 1000;
 const LIMIT = 5;
 const MAX_IPS = 10_000;
 
-function isRateLimited(ip: string): boolean {
+// Evict expired entries once per minute rather than on every request.
+setInterval(() => {
     const now = Date.now();
-
-    // Evict IPs whose entire history has expired to bound map growth.
     for (const [key, timestamps] of ipLog) {
         if (timestamps.every((t) => now - t >= WINDOW_MS)) {
             ipLog.delete(key);
         }
     }
+}, 60_000).unref();
 
-    // Hard cap as a secondary guard against a flood of unique IPs.
+function isRateLimited(ip: string): boolean {
+    // Hard cap as a guard against a flood of unique IPs between eviction runs.
     if (ipLog.size >= MAX_IPS) {
         const oldest = ipLog.keys().next().value;
         if (oldest) ipLog.delete(oldest);
     }
 
+    const now = Date.now();
     const hits = (ipLog.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
     if (hits.length >= LIMIT) return true;
     ipLog.set(ip, [...hits, now]);
@@ -67,7 +69,7 @@ function isRateLimited(ip: string): boolean {
 
 export async function POST(req: Request) {
     // Fail fast if email credentials are not configured
-    const { ZOHO_USER, ZOHO_PASS } = process.env;
+    const { ZOHO_USER, ZOHO_PASS, CONTACT_TO } = process.env;
     if (!ZOHO_USER || !ZOHO_PASS) {
         console.error("ZOHO_USER or ZOHO_PASS is not set");
         return NextResponse.json(
@@ -125,7 +127,7 @@ export async function POST(req: Request) {
 
         await transporter.sendMail({
             from: `"Begory Capital" <${ZOHO_USER}>`,
-            to: "mg@begorycapital.com",
+            to: CONTACT_TO ?? "mg@begorycapital.com",
             replyTo: email,
             subject: `New deal inquiry from ${name}`,
             text: [

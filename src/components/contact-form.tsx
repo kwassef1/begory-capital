@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, type FormEvent } from "react";
 import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -63,7 +63,7 @@ type Status = "idle" | "loading" | "success" | "error";
 
 function FieldError({ message }: { message?: string }) {
     if (!message) return null;
-    return <p className="text-xs text-destructive">{message}</p>;
+    return <p role="alert" className="text-xs text-destructive">{message}</p>;
 }
 
 export default function ContactForm() {
@@ -78,7 +78,7 @@ export default function ContactForm() {
         }
     }, [params]);
 
-    async function handleSubmit(e: { preventDefault(): void; currentTarget: HTMLFormElement }) {
+    async function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
         setStatus("loading");
 
